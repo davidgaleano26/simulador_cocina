@@ -1,0 +1,7 @@
+{
+  "name": "simulador_horario",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
