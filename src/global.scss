@@ -24,3 +24,8 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+ .azul .md split-pane-md, .azul .loading-wrapper {
+    color: blue !important; 
+    background-color: transparent !important;
+}

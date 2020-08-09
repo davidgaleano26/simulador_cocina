@@ -1,25 +1,43 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
+      <div class="estilito">
+        <ion-icon name="people-circle-outline" class="icono"></ion-icon>
+      <ion-list-header class="titulo">SIMULADOR COCINA</ion-list-header>
+      <ion-note class="subtitulo">jimmy menjura</ion-note>
+    </div>
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-list-header>SIMULADOR COCINA</ion-list-header>
-          <ion-note>davidgaleano2611@gmail.com</ion-note>
-
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
               <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
+            
           </ion-menu-toggle>
+          <ion-button slot="start" > 
+          <ion-back-button defaultHref="/" text="Cerrar sesión"></ion-back-button>
+        </ion-button>
         </ion-list>
 
         <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
+          <ion-list-header>Redes sociales</ion-list-header>
 
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
+          <!-- <ion-item *ngFor="let label of labels" lines="none">
+            <ion-icon slot="start"  md="bookmark-sharp"></ion-icon>
             <ion-label>{{ label }}</ion-label>
+          </ion-item> -->
+          <ion-item  lines="none" href="https://www.facebook.com/politecnicointernacionalcolombia/">
+            <ion-icon  name="logo-facebook"></ion-icon>
+              <ion-label>facebook</ion-label>
+            </ion-item >
+          <ion-item lines="none" href="https://twitter.com/PolitecnicoIn">
+            <ion-icon name="logo-twitter"></ion-icon>
+              <ion-label>Twitter</ion-label>
+          </ion-item>
+          <ion-item lines="none"  href="https://www.youtube.com/channel/UCAEC5XpWlPZlZBrirQ6oGLg">
+            <ion-icon name="logo-youtube"></ion-icon>
+              <ion-label>Youtube</ion-label>
           </ion-item>
         </ion-list>
       </ion-content>

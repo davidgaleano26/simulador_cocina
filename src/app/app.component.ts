@@ -44,16 +44,11 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Administrativos',
-      url: '/folder/Administrativos',
+      url: '/administrativos',
       icon: 'person'
-    },
-    {
-      title: 'Salir',
-      url: '/folder/Salir',
-      icon: 'exit'
     }
   ];
-  public labels = ['Gmail', 'Facebook', 'Instagram', 'YouTube', 'Sitio Web'];
+ // public labels = ['Gmail', 'Facebook', 'Instagram', 'YouTube', 'Sitio Web'];
 
   constructor(
     private platform: Platform,
