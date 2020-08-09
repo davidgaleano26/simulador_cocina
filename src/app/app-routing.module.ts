@@ -14,7 +14,20 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },  {
+  },
+  {
+    path: 'egresados',
+    loadChildren: () => import('./egresados/egresados.module').then( m => m.EgresadosPageModule)
+  },
+  {
+    path: 'docentes',
+    loadChildren: () => import('./docentes/docentes.module').then( m => m.DocentesPageModule)
+  },
+  {
+    path: 'investigacion',
+    loadChildren: () => import('./investigacion/investigacion.module').then( m => m.InvestigacionPageModule)
+  },
+  {
     path: 'administrativos',
     loadChildren: () => import('./administrativos/administrativos.module').then( m => m.AdministrativosPageModule)
   }
