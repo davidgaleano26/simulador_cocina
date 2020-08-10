@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Egresados',
-      url: '/folder/Egresados',
+      url: '/egresados',
       icon: 'school'
     },
     {
