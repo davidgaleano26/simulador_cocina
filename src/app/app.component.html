@@ -7,6 +7,13 @@
       <ion-note class="subtitulo">jimmy menjura</ion-note>
     </div>
       <ion-content>
+        <ion-list>
+          <ion-item>
+            <ion-icon slot="start" name="moon"></ion-icon>
+            <ion-label>Modo oscuro</ion-label>
+            <ion-toggle slot="end" [ngModel]="darkMode" (ionChange)="cambio()"></ion-toggle>
+          </ion-item>
+        </ion-list>
         <ion-list id="inbox-list">
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
