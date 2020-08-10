@@ -35,12 +35,12 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Docentes',
-      url: '/folder/Docentes',
+      url: '/docentes',
       icon: 'briefcase'
     },
     {
       title: 'Investigacion',
-      url: '/folder/Investigacion',
+      url: '/investigacion',
       icon: 'folder-open'
     },
     {
