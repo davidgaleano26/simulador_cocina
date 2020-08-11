@@ -1,6 +1,66 @@
-.btn-primary{
-    height: 60px;
+.center{
+    width: 100%;
+    padding: 10px;
 }
-.user{
-    margin-top: 150px;
+.login_header{
+    background-color: blue ;
 }
+.logo-img{
+    display: block;
+    width: 100%;
+
+}
+[heading-column-lr]{
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+[big-heading]{
+    font-size: 25px;
+    color: black;
+}
+
+[small-heading]{
+    margin-left: auto;
+    padding-right: 40px;
+    font-size: 15px;
+}
+
+ion-label{
+    color: black;
+    opacity: .8;
+    font-size: 13px;
+    display: block;
+    margin: 10px;
+}
+[transparent]{
+    background: transparent;
+    border: 1px solid #dedede;
+    border-radius: 10px;
+    &.item-has-focus {
+        border: 3px solid rgb(24, 129, 228);
+        height: 65px;
+        margin: 0px;
+    }
+}
+
+ion-input{
+    font-size: 15px;
+    text-indent: 1px;
+    padding-left: 10px;
+    margin: 10px;
+}
+[icon-small]{
+    width: 30px;
+}
+[linespace]{
+    height: 25px;
+}
+.button-login{    
+    height: 50px;
+}
+.button-new{
+    height: 50px;
+}
+
