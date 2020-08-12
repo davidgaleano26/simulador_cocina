@@ -18,6 +18,7 @@ export class FolderPage implements OnInit {
   }
   async presentLoading() {
     const loading = await this.loadingCtrl.create({
+      cssClass: 'azul',
       message: 'Bienvenido',
       duration: 2000
     });

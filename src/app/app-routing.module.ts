@@ -31,8 +31,21 @@ const routes: Routes = [
     path: 'administrativos',
     loadChildren: () => import('./administrativos/administrativos.module').then( m => m.AdministrativosPageModule)
   },  {
+<<<<<<< HEAD
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+=======
+    path: 'inicio',
+    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
+  },
+  {
+    path: 'estudiantes',
+    loadChildren: () => import('./estudiantes/estudiantes.module').then( m => m.EstudiantesPageModule)
+  },
+  {
+    path: 'quienes-somos',
+    loadChildren: () => import('./quienes-somos/quienes-somos.module').then( m => m.QuienesSomosPageModule)
+>>>>>>> edf4eebb816399165515da0a573e0f5aebe2cda7
   }
 
 
