@@ -9,10 +9,8 @@
     <div heading-column-lr>
       <h1 big-heading>Login</h1>
       <h2 small-heading>SING UP</h2>
-    </div>
-    <ion-label>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, cumque.
-    </ion-label>
+    </div> 
+    <ion-label>Ingresar datos del estudiante para iniciar formacion</ion-label>  
 
     <ion-item transparent>
       <img icon-small src="../../assets/icon/perfil.png" alt="">
@@ -25,9 +23,11 @@
 
     <div linespace></div>
     <ion-button color="primary" class="ion-button-class button-login" shape="round" fill="solid" size="large"
-      expand="block">Ingresar</ion-button>
-    <ion-button color="medium" class="button-new" shape="round" fill="solid" size="large" expand="block">Crear Cuenta
+      expand="block" [routerLink]="['/inicio/']">Ingresar</ion-button>
+    <ion-button color="medium" class="button-new" shape="round" fill="solid" size="large" expand="block" [routerLink]="['/registro/']">Crear Cuenta
     </ion-button>
+    <ion-button color="Light" class="button-google" shape="round" fill="solid" size="large" expand="block" [routerLink]="['/registro/']">
+      <ion-icon slot="start" name="logo-google"></ion-icon>iniciar con google</ion-button>
   </div>
 
 </ion-content>
