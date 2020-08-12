@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Cerrar Sesion',
       url: '/login',
-      icon: 'return'
+      icon: 'arrow-back'
     }
   ];
  // public labels = ['Gmail', 'Facebook', 'Instagram', 'YouTube', 'Sitio Web'];
