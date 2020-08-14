@@ -12,18 +12,6 @@ export class DocentesPage implements OnInit {
   ngOnInit() {
   }
 
-  slides = [
-    {
-      img:'https://contraloriadelmagdalena.gov.co/contratacion/imagenes/botones/usuario.png',
-      titulo: 'David Ariza<br>Decano'
-    },
-    {
-      img:'https://contraloriadelmagdalena.gov.co/contratacion/imagenes/botones/usuario.png',
-      titulo: 'David Ariza<br>Decano'
-    },{
-      img:'https://contraloriadelmagdalena.gov.co/contratacion/imagenes/botones/usuario.png',
-      titulo: 'David Ariza<br>Decano'
-    }
-  ]
+  
 
 }
