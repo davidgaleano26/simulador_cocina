@@ -15,17 +15,17 @@ export class AppComponent implements OnInit {
   public appPages = [
     {
       title: 'Inicio',
-      url: '/inicio',
+      url: '/folder/Inicio',
       icon: 'home'
     },
     {
       title: 'Quienes somos',
-      url: '/quienes-somos',
+      url: '/folder/Quienes Somos',
       icon: 'bulb'
     },
     {
       title: 'Estudiantes',
-      url: '/estudiantes',
+      url: '/folder/Estudiantes',
       icon: 'book'
     },
     {
@@ -47,6 +47,11 @@ export class AppComponent implements OnInit {
       title: 'Administrativos',
       url: '/administrativos',
       icon: 'person'
+    },
+    {
+      title: 'Cerrar Sesion',
+      url: '/login',
+      icon: 'arrow-back'
     }
   ];
  // public labels = ['Gmail', 'Facebook', 'Instagram', 'YouTube', 'Sitio Web'];
@@ -65,15 +70,15 @@ export class AppComponent implements OnInit {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      // this.darkTheme();
+      this.darkTheme();
     });
   }
-    // darkTheme(){
-    //     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    //     if(prefersDark.matches){
-    //       document.body.classList.toggle('dark');
-    //     }
-    //   }
+    darkTheme(){
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+        if(prefersDark.matches){
+          document.body.classList.toggle('dark');
+        }
+      }
 
   ngOnInit() {
     const path = window.location.pathname.split('folder/')[1];
@@ -85,5 +90,14 @@ export class AppComponent implements OnInit {
     //const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
     this.darkMode = !this.darkMode
          document.body.classList.toggle('dark');
+     }
+     verdadero(){
+      let uno = document.body.classList.value;
+      if(uno === 'dark'){
+        return true;
+      }
+      else{
+        return false;
+      }
      }
 }

@@ -1,0 +1,36 @@
+ion-content{
+    --background:url(../../assets/img/fondo_registro2.PNG) no-repeat center/cover;
+    
+}
+
+.center{
+    padding: 10px;
+}
+ion-item {
+    --background:transparent !important;
+    --border-color: transparent!important;
+    --highlight-height: 0;
+    border: 1px solid #dedede;
+    border-radius: 10px;
+    margin: 10px;
+    color: white;
+    &.item-has-focus {
+        border: 3px solid rgb(24, 129, 228);
+        height: 55px;
+        margin: 5px;
+    }
+}
+[small-heading]{
+    margin-left: 10px;
+    font-size: 35px;
+    color: white;
+}
+.button-saved{    
+    height: 50px;
+    margin-top: 30px;
+    font-size: 18px;
+}
+.button-back{
+    height: 50px;
+    font-size: 18px;
+}

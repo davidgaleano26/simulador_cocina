@@ -11,7 +11,7 @@
           <ion-item>
             <ion-icon slot="start" name="moon"></ion-icon>
             <ion-label>Modo oscuro</ion-label>
-            <ion-toggle slot="end" [ngModel]="darkMode" (ionChange)="cambio()"></ion-toggle>
+            <ion-toggle slot="end" [ngModel]="darkMode" (ionChange)="cambio()" checked="verdadero()"></ion-toggle>
           </ion-item>
         </ion-list>
         <ion-list id="inbox-list">
@@ -22,9 +22,6 @@
             </ion-item>
             
           </ion-menu-toggle>
-          <ion-button slot="start" > 
-          <ion-back-button defaultHref="/" text="Cerrar sesión"></ion-back-button>
-        </ion-button>
         </ion-list>
 
         <ion-list id="labels-list">

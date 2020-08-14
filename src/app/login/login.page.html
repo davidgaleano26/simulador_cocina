@@ -1,25 +1,33 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title color="dark" class="ion-text-center">login</ion-title>
-  </ion-toolbar>
+<ion-header no-border>
+  <div class="login-header ion-padding">
+    <img class="logo-img" src="../../assets/img/fondo.PNG" alt="">
+  </div>
 </ion-header>
 
 <ion-content>
-  <ion-item class="user" color="primario">
-    <ion-label position="floating" >Usuario</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-<ion-item >
-  <ion-label position="floating">Contraseña</ion-label>
-  <ion-input class="ion-text-right" ></ion-input>
-</ion-item>
-            <br/>
-</ion-content>
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col size="6" offset="3">
-        <ion-button size="full" class="btn-primary" color="primary" shape="round" [routerLink]="['/folder/Inbox']">Aceptar</ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <div class="center">
+    <div heading-column-lr>
+      <h1 big-heading>Login</h1>
+      <h2 small-heading>SING UP</h2>
+    </div> 
+    <ion-label>Ingresar datos del estudiante para iniciar formacion</ion-label>  
 
+    <ion-item transparent>
+      <img icon-small src="../../assets/icon/perfil.png" alt="">
+      <ion-input placeholder="Usuario" type="text"></ion-input>
+    </ion-item>
+    <ion-item transparent>
+      <img icono-samll src="../../assets/icon/contrasena.png" alt="">
+      <ion-input placeholder="Contraseña" type="password"></ion-input>
+    </ion-item>
+
+    <div linespace></div>
+    <ion-button color="primary" class="ion-button-class button-login" shape="round" fill="solid" size="large"
+      expand="block" [routerLink]="['/inicio/']">Ingresar</ion-button>
+    <ion-button color="medium" class="button-new" shape="round" fill="solid" size="large" expand="block" [routerLink]="['/registro/']">Crear Cuenta
+    </ion-button>
+    <ion-button color="Light" class="button-google" shape="round" fill="solid" size="large" expand="block" [routerLink]="['/registro/']">
+      <ion-icon slot="start" name="logo-google"></ion-icon>iniciar con google</ion-button>
+  </div>
+
+</ion-content>
