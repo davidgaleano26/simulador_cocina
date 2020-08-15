@@ -135,7 +135,12 @@ ion-item.selected {
   margin-left: 25%;
 }
 .icono{
-  width: 50px;
-  height: 50px;
+  font-size: 80px;
   margin-left: 40%;
+  margin-top: 5%;
+}
+.sub-menu{
+  padding-left: 20px;
+  font-size: small;
+  background: linear-gradient(to right, #092259,#2d5dc4);
 }

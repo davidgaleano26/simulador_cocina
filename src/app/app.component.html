@@ -1,6 +1,7 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
+    <ion-menu contentId="main-content" type="overlay" >
+      <!-- [hidden]="true" -->
       <div class="estilito">
         <ion-icon name="people-circle-outline" class="icono"></ion-icon>
       <ion-list-header class="titulo">SIMULADOR COCINA</ion-list-header>
@@ -15,15 +16,29 @@
           </ion-item>
         </ion-list>
         <ion-list id="inbox-list">
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
-              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+          <div *ngFor="let p of appPages; let i = index">
+          <ion-menu-toggle auto-hide="false" *ngIf="p.url" >
+            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false"  routerLinkActive="active">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
-            
           </ion-menu-toggle>
-        </ion-list>
-
+          
+          <!-- <ion-item button *ngIf="p.children?.length > 0" (click)="p.open = !p.open" lines="none" [class.active-parent]="p.open" detail="false">
+            <ion-icon slot="start" name="arrow-forward" *ngIf="!p.open"></ion-icon>
+            <ion-icon slot="start" name="arrow-down" *ngIf="p.open"></ion-icon>
+            <ion-label>{{p.title}}</ion-label>
+          </ion-item>
+          <ion-list *ngIf="p.open">
+            <ion-menu-toggle >
+              <ion-item *ngFor="let sub of p.children" routerDirection="root" [routerLink]="[sub.url]" detail="false"  class="sub-menu" routerLinkActive="active">
+                <ion-icon slot="start" [name]="sub.icon"></ion-icon>
+                <ion-label>{{ sub.title }}</ion-label>
+              </ion-item> -->
+            <!-- </ion-menu-toggle>
+          </ion-list> -->
+        </div>
+      </ion-list>
         <ion-list id="labels-list">
           <ion-list-header>Redes sociales</ion-list-header>
 

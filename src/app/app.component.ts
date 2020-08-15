@@ -11,6 +11,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent implements OnInit {
   darkMode: boolean = true;
+  path: string = null;
   public selectedIndex = 0;
   public appPages = [
     {
@@ -25,8 +26,74 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Estudiantes',
-      url: '/estudiantes',
-      icon: 'book'
+      icon: 'book',
+      children: [
+        {
+        title: 'Portal estudiantes',
+        url: '/folder/Estudiantes',
+        icon: 'home'
+        },
+        {
+        title: 'Correo institucional',
+        url: '/folder/Estudiantes',
+        icon: 'school'
+        },
+        {
+        title: 'Servicio al cliente',
+        url: '/folder/Estudiantes',
+        icon: 'home'
+        },
+        {
+        title: 'Campus virtual',
+        url: '/folder/Estudiantes',
+        icon: 'school'
+        },
+        {
+        title: 'Centro Virtual de Aprendizaje',
+        url: '/folder/Estudiantes',
+        icon: 'home'
+        },
+        {
+        title: 'Bienestar',
+        url: '/folder/Estudiantes',
+        icon: 'school'
+        },
+        {
+        title: 'Grados',
+        url: '/folder/Estudiantes',
+        icon: 'home'
+        },
+        {
+        title: 'Bolsa de empleo estudiantes',
+        url: '/folder/Estudiantes',
+        icon: 'school'
+        },
+        {
+        title: 'Pagos inteligentes',
+        url: '/folder/Estudiantes',
+        icon: 'school'
+        },
+        {
+        title: 'PQR',
+        url: '/folder/Estudiantes',
+        icon: 'school'
+        },
+        {
+        title: 'Practicantes',
+        url: '/folder/Estudiantes',
+        icon: 'school'
+        },
+        {
+        title: 'Biblioteca',
+        url: '/folder/Estudiantes',
+        icon: 'school'
+        },
+        {
+        title: 'Protocolo Bioseguridad',
+        url: '/folder/Estudiantes',
+        icon: 'school'
+        },
+      ]
     },
     {
       title: 'Egresados',
@@ -73,31 +140,34 @@ export class AppComponent implements OnInit {
       this.darkTheme();
     });
   }
-    darkTheme(){
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-        if(prefersDark.matches){
-          document.body.classList.toggle('dark');
-        }
-      }
-
+  darkTheme(){
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    if (prefersDark.matches){
+      document.body.classList.toggle('dark');
+    }
+  }
+  ionViewWillEnter() {
+    this.path = window.location.pathname;
+    console.log(this.path);
+  }
   ngOnInit() {
     const path = window.location.pathname.split('folder/')[1];
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
+}
+cambio(){
+
+this.darkMode = !this.darkMode,
+     document.body.classList.toggle('dark');
+ }
+ verdadero(){
+  const uno = document.body.classList.value;
+  if (uno === 'dark'){
+    return true;
   }
-  cambio(){
-    //const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    this.darkMode = !this.darkMode
-         document.body.classList.toggle('dark');
-     }
-     verdadero(){
-      let uno = document.body.classList.value;
-      if(uno === 'dark'){
-        return true;
-      }
-      else{
-        return false;
-      }
-     }
+  else{
+    return false;
+  }
+ }
 }

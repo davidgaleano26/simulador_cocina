@@ -1,3 +1,4 @@
+
 .center{
     width: 100%;
     padding: 10px;
@@ -75,3 +76,26 @@ ion-input{
 ion-icon{
     color: royalblue;
 }
+
+@media screen and (min-width: 650px) {
+ .logo-img{
+     width: 45%;
+ }
+ .button-login{    
+    width: 250px;
+    display: block;
+    float: left;
+
+}
+.button-new{
+    width: 250px;
+    display: block;
+    float: left;
+}
+.button-google{
+    width: 250px;
+    display: block;
+    float: left;
+    
+}
+ }
