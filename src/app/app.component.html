@@ -12,7 +12,7 @@
           <ion-item>
             <ion-icon slot="start" name="moon"></ion-icon>
             <ion-label>Modo oscuro</ion-label>
-            <ion-toggle slot="end" [(ngModel)]="darkMode" (ionChange)="cambio()" checked="verdadero()"></ion-toggle>
+            <ion-toggle slot="end"  (ionChange)="cambio()" checked="verdadero()"></ion-toggle>
           </ion-item>
         </ion-list>
         <ion-list id="inbox-list">
@@ -23,12 +23,12 @@
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
-          
           <ion-item button *ngIf="p.children?.length > 0" (click)="p.open = !p.open" lines="none" [class.active-parent]="p.open" detail="false">
             <ion-icon slot="start" name="arrow-forward" *ngIf="!p.open"></ion-icon>
             <ion-icon slot="start" name="arrow-down" *ngIf="p.open"></ion-icon>
-            <ion-label>{{p.title}}</ion-label>
+            <ion-label >{{p.title}} </ion-label>
           </ion-item>
+         
           <ion-list *ngIf="p.open">
             <ion-menu-toggle >
               <ion-item *ngFor="let sub of p.children" routerDirection="root" [routerLink]="[sub.url]" detail="false"  class="sub-menu" routerLinkActive="active">
