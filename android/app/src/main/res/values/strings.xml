@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">simulador_horario</string>
+    <string name="title_activity_main">simulador_horario</string>
+    <string name="package_name">com.solar.jimmy</string>
+    <string name="custom_url_scheme">com.solar.jimmy</string>
+</resources>
