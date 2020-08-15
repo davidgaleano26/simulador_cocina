@@ -12,7 +12,7 @@
           <ion-item>
             <ion-icon slot="start" name="moon"></ion-icon>
             <ion-label>Modo oscuro</ion-label>
-            <ion-toggle slot="end"  (ionChange)="cambio()" checked="verdadero()"></ion-toggle>
+            <ion-toggle slot="end" [ngModel]="darkMode" (ionChange)="cambio()" checked="verdadero()"></ion-toggle>
           </ion-item>
         </ion-list>
         <ion-list id="inbox-list">
@@ -40,7 +40,7 @@
         </div>
       </ion-list>
         <ion-list id="labels-list">
-          <ion-list-header>Redes social</ion-list-header>
+          <ion-list-header>Redes sociales</ion-list-header>
 
           <!-- <ion-item *ngFor="let label of labels" lines="none">
             <ion-icon slot="start"  md="bookmark-sharp"></ion-icon>
