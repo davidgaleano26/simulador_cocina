@@ -158,7 +158,7 @@ export class AppComponent implements OnInit {
   }
   cambio(){
     //const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    this.darkMode = !this.darkMode
+    this.darkMode = !this.darkMode,
          document.body.classList.toggle('dark');
      }
      verdadero(){
