@@ -15,17 +15,17 @@ export class AppComponent implements OnInit {
   public appPages = [
     {
       title: 'Inicio',
-      url: '/folder/Inicio',
+      url: '/inicio',
       icon: 'home'
     },
     {
       title: 'Quienes somos',
-      url: '/folder/Quienes Somos',
+      url: '/quienes-somos',
       icon: 'bulb'
     },
     {
       title: 'Estudiantes',
-      url: '/folder/Estudiantes',
+      url: '/estudiantes',
       icon: 'book'
     },
     {
