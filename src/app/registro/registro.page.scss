@@ -34,3 +34,18 @@ ion-item {
     height: 50px;
     font-size: 18px;
 }
+@media screen and (min-width: 650px) {
+  
+  
+   .button-saved{
+       width: 250px;
+       display: block;
+       float: left;
+   }
+   .button-back{
+       width: 250px;
+       display: block;
+       float: left;
+       margin-top: 30px;
+   }
+    }
