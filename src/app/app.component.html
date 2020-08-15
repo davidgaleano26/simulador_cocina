@@ -34,8 +34,8 @@
               <ion-item *ngFor="let sub of p.children" routerDirection="root" [routerLink]="[sub.url]" detail="false"  class="sub-menu" routerLinkActive="active">
                 <ion-icon slot="start" [name]="sub.icon"></ion-icon>
                 <ion-label>{{ sub.title }}</ion-label>
-              </ion-item>
-             </ion-menu-toggle>
+              </ion-item> 
+            </ion-menu-toggle>
           </ion-list>
         </div>
       </ion-list>
