@@ -24,7 +24,7 @@
             </ion-item>
           </ion-menu-toggle>
           
-          <!-- <ion-item button *ngIf="p.children?.length > 0" (click)="p.open = !p.open" lines="none" [class.active-parent]="p.open" detail="false">
+          <ion-item button *ngIf="p.children?.length > 0" (click)="p.open = !p.open" lines="none" [class.active-parent]="p.open" detail="false">
             <ion-icon slot="start" name="arrow-forward" *ngIf="!p.open"></ion-icon>
             <ion-icon slot="start" name="arrow-down" *ngIf="p.open"></ion-icon>
             <ion-label>{{p.title}}</ion-label>
@@ -34,9 +34,9 @@
               <ion-item *ngFor="let sub of p.children" routerDirection="root" [routerLink]="[sub.url]" detail="false"  class="sub-menu" routerLinkActive="active">
                 <ion-icon slot="start" [name]="sub.icon"></ion-icon>
                 <ion-label>{{ sub.title }}</ion-label>
-              </ion-item> -->
-            <!-- </ion-menu-toggle>
-          </ion-list> -->
+              </ion-item>
+             </ion-menu-toggle>
+          </ion-list>
         </div>
       </ion-list>
         <ion-list id="labels-list">
