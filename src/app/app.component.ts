@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Estudiantes',
       icon: 'book',
-      children:[ 
+      children: [
         {
         title: 'Portal estudiantes',
         url: '/folder/Estudiantes',
@@ -140,34 +140,34 @@ export class AppComponent implements OnInit {
       this.darkTheme();
     });
   }
-    darkTheme(){
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-        if(prefersDark.matches){
-          document.body.classList.toggle('dark');
-        }
-      }
-      ionViewWillEnter() {
-        this.path = window.location.pathname;
-        console.log(this.path)
-      }
-      ngOnInit() {
-        const path = window.location.pathname.split('folder/')[1];
-        if (path !== undefined) {
-          this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
-        }
+  darkTheme(){
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    if (prefersDark.matches){
+      document.body.classList.toggle('dark');
+    }
   }
-  cambio(){
-    //const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    this.darkMode = !this.darkMode,
-         document.body.classList.toggle('dark');
-     }
-     verdadero(){
-      let uno = document.body.classList.value;
-      if(uno === 'dark'){
-        return true;
-      }
-      else{
-        return false;
-      }
-     }
+  ionViewWillEnter() {
+    this.path = window.location.pathname;
+    console.log(this.path);
+  }
+  ngOnInit() {
+    const path = window.location.pathname.split('folder/')[1];
+    if (path !== undefined) {
+      this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
+    }
+}
+cambio(){
+
+this.darkMode = !this.darkMode,
+     document.body.classList.toggle('dark');
+ }
+ verdadero(){
+  const uno = document.body.classList.value;
+  if (uno === 'dark'){
+    return true;
+  }
+  else{
+    return false;
+  }
+ }
 }
