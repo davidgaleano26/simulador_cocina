@@ -10,7 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
-  darkMode = true;
+  darkMode: boolean = true;
   path: string = null;
   public selectedIndex = 0;
   public appPages = [
