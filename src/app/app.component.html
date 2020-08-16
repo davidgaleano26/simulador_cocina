@@ -2,10 +2,15 @@
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay" >
       <!-- [hidden]="true" -->
-      <div class="estilito">
-        <ion-icon name="people-circle-outline" class="icono"></ion-icon>
+      <div class="estilito" *ngIf="!user">
+        <ion-icon slot="start" name="arrow-forward" class="icono"></ion-icon>
       <ion-list-header class="titulo">SIMULADOR COCINA</ion-list-header>
-      <ion-note class="subtitulo">jimmy menjura</ion-note>
+      <ion-note class="subtitulo">Ponerle nombre</ion-note>
+    </div>
+      <div class="estilito" *ngIf="user">
+        <img src="{{ user.photoUrl }}" class="icono">
+      <ion-list-header class="titulo">SIMULADOR COCINA</ion-list-header>
+      <ion-note class="subtitulo">{{user.name}}</ion-note>
     </div>
       <ion-content>
         <ion-list>
@@ -38,6 +43,7 @@
             </ion-menu-toggle>
           </ion-list>
         </div>
+        <ion-button [routerLink]="['/login']" (click)="signOut()" sideMenu="false">Cerrar sesión</ion-button>
       </ion-list>
         <ion-list id="labels-list">
           <ion-list-header>Redes sociales</ion-list-header>
