@@ -1,12 +1,19 @@
 {
   "appId": "com.solar.jimmy",
-  "appName": "simulador_horario",
+  "appName": "com.solar.jimmy",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
   "plugins": {
     "SplashScreen": {
-      "launchShowDuration": 0
+      "launchShowDuration": 0,
+      "GoogleAuth": {
+        "scopes": [
+          "profile",
+          "email"
+        ],
+        "serverClientId": "644009582655-q01jt79a03g21qkorhdpkq01jh0lqtr9.apps.googleusercontent.com"
+      }
     }
   },
   "cordova": {

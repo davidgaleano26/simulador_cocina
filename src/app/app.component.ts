@@ -3,6 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SocialAuthService } from "angularx-social-login";
+import { SocialUser } from "angularx-social-login";
+import { Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -12,6 +16,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 export class AppComponent implements OnInit {
   darkMode: boolean = true;
   path: string = null;
+  user: SocialUser;
+  loggedIn: boolean;
   public open: string = null;
 
 
@@ -155,7 +161,9 @@ export class AppComponent implements OnInit {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private autService: SocialAuthService,
+    public router: Router
     ) {
       this.initializeApp();
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
@@ -184,6 +192,10 @@ export class AppComponent implements OnInit {
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
+    this.autService.authState.subscribe((user) => {
+      this.user = user;
+      this.loggedIn = (user != null);
+    });
 }
 cambio(){
 
@@ -199,5 +211,7 @@ this.darkMode = !this.darkMode,
     return false;
   }
  }
-
+ signOut(): void {
+    this.autService.signOut();
+}
 }
