@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
 
+  // tslint:disable-next-line: one-variable-per-declaration
   let statusBarSpy, splashScreenSpy, platformReadySpy, platformSpy;
 
   beforeEach(async(() => {
