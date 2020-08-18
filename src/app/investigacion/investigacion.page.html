@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Investigacion</ion-title>
+    <ion-title slot="end">Investigacion</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,8 +11,8 @@
   <ion-slides pager="true ">
     <ion-slide *ngFor="let slide of slides" >
   
-      <div class="slide-img-padding">
-        <img [src]="slide.img">
+      <div class="slide-img-padding" >
+        <img [src]="slide.img" >
       </div>
       <div>
         <h3 [innerHTML]="slide.titulo" ></h3>

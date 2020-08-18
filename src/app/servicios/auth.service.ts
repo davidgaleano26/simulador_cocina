@@ -8,13 +8,14 @@ import { auth } from 'firebase';
 })
 export class AuthService {
 
-  constructor(private AFauth: AngularFireAuth,private google : GooglePlus) { 
+  constructor(private AFauth: AngularFireAuth, private google: GooglePlus) {
   }
   loginWithGoogle(){
-    this.AFauth
-    return this.google.login({}).then(result=>{
+    // tslint:disable-next-line: no-unused-expression
+    return this.google.login({}).then(result => {
+      // tslint:disable-next-line: variable-name
       const user_data_google = result;
-      return this.AFauth.signInWithCredential(auth.GoogleAuthProvider.credential(null,user_data_google.accesToken))
-    })
+      return this.AFauth.signInWithCredential(auth.GoogleAuthProvider.credential(null, user_data_google.accesToken));
+    });
   }
 }
