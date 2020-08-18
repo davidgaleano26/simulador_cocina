@@ -29,7 +29,7 @@ export class LoginPage implements OnInit {
     const entramos = this.autService.signIn(GoogleLoginProvider.PROVIDER_ID);
     console.log(entramos)
     if (!entramos){
-      alert("NO FUNCIONA POR QUE TENEMOS UN PROBLEMA");
+      alert("No funciona");
     }
     else{
     this.router.navigate(['/inicio']);
