@@ -4,6 +4,8 @@ import { Router} from '@angular/router';
 import { SocialAuthService } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
 import { SocialUser } from "angularx-social-login";
+import { MenuController } from '@ionic/angular';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -13,7 +15,7 @@ export class LoginPage implements OnInit {
   user: SocialUser;
   loggedIn: boolean;
 
-  constructor(private authService: AuthService, public router: Router,private autService: SocialAuthService) { }
+  constructor(private authService: AuthService, public router: Router,private autService: SocialAuthService,public menuctrl: MenuController) { }
 
   ngOnInit() {
     
@@ -35,4 +37,10 @@ export class LoginPage implements OnInit {
     this.router.navigate(['/inicio']);
     }
   }
+  ionViewWillEnter() {
+    this.menuctrl.enable(false);
+ }
+ ionViewDidLeave() {
+   this.menuctrl.enable(true);
+ } 
 }

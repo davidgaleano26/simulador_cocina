@@ -17,7 +17,7 @@ export class AdministrativosPage implements OnInit {
   async presentLoading() {
     const loading = await this.loadingCtrl.create({
       cssClass: 'azul',
-      message: 'Cargando...',
+      message: 'visualizando...',
       duration: 2000
     });
     return await loading.present();

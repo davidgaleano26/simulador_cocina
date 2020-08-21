@@ -26,6 +26,6 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
  .azul .md split-pane-md, .azul .loading-wrapper {
-    color: blue !important; 
-    background-color: transparent !important;
+    color: linear-gradient(to right, #092259,#2d5dc4) !important; 
+    background-color: rgba(0,0,0,0.500) !important;
 }
