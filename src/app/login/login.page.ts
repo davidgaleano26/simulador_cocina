@@ -15,6 +15,8 @@ import { Extractor } from '@angular/compiler';
 export class LoginPage implements OnInit {
   user: SocialUser;
   loggedIn: boolean;
+  http: any;
+  profile: any;
   constructor( public router: Router,private autService: SocialAuthService,public menuctrl: MenuController,private broadcastService: BroadcastService, private authService: MsalService) {}
 
   ngOnInit() {
@@ -51,7 +53,6 @@ export class LoginPage implements OnInit {
     if (isIE) {
       this.authService.loginRedirect({
         extraScopesToConsent: ["user.read", "openid", "profile"]
-        
       });
       this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
         // Callback code here
@@ -59,7 +60,7 @@ export class LoginPage implements OnInit {
       }).catch(function (error) {
         console.log(error);
       });
-      
+     return this.router.navigate(['/inicio']);
     } else {
       this.authService.loginPopup({
         extraScopesToConsent: ["user.read", "openid", "profile"]
@@ -74,6 +75,13 @@ export class LoginPage implements OnInit {
   return this.router.navigate(['/inicio']);
 } 
 
+getProfile() {
+  const graphMeEndpoint = "https://graph.microsoft.com/v1.0/me";
+  this.http.get(graphMeEndpoint).toPromise()
+    .then(profile => {
+      this.profile = profile;
+    });
+}
 
 
 }

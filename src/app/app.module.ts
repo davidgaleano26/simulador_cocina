@@ -22,6 +22,7 @@ import {
   AmazonLoginProvider,
 } from 'angularx-social-login';
 import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
 @NgModule({
@@ -64,6 +65,11 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MsalInterceptor,
+      multi: true
+  },
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
