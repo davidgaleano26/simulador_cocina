@@ -17,7 +17,8 @@ export class LoginPage implements OnInit {
   loggedIn: boolean;
   http: any;
   profile: any;
-  constructor( public router: Router,private autService: SocialAuthService,public menuctrl: MenuController,private broadcastService: BroadcastService, private authService: MsalService) {}
+  // tslint:disable-next-line: max-line-length
+  constructor( public router: Router, private autService: SocialAuthService, public menuctrl: MenuController, private broadcastService: BroadcastService, private authService: MsalService) {}
 
   ngOnInit() {
 
@@ -29,7 +30,7 @@ export class LoginPage implements OnInit {
   //     alert ('Algo salió mal contacte con el administrador' + JSON.stringify(err));
   //   });
   // }
-  signInWithGoogle():void{
+  signInWithGoogle(): void{
     const entramos = this.autService.signIn(GoogleLoginProvider.PROVIDER_ID);
     console.log(entramos);
     if (!entramos){
@@ -80,7 +81,7 @@ export class LoginPage implements OnInit {
 }
 
 getProfile() {
-  const graphMeEndpoint = "https://graph.microsoft.com/v1.0/me";
+  const graphMeEndpoint = 'https://graph.microsoft.com/v1.0/me';
   this.http.get(graphMeEndpoint).toPromise()
     .then(profile => {
       this.profile = profile;
