@@ -10,9 +10,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginPipe } from './login.pipe';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
-/*import { AngularFireAuthModule } from '@angular/fire/auth';*/
-/*import { firebaseConfig } from '../environments/environment';*/
-/*import { AngularFireModule} from '@angular/fire';*/
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { firebaseConfig } from '../environments/environment';
+import { AngularFireModule} from '@angular/fire';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
@@ -21,13 +21,8 @@ import {
   FacebookLoginProvider,
   AmazonLoginProvider,
 } from 'angularx-social-login';
-
-import { firebaseConfig } from "../environments/environment";
-import { AngularFireModule } from "@angular/fire";
-import { AngularFireAuthModule } from "@angular/fire/auth";
-
 import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
-import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
 @NgModule({
@@ -44,7 +39,7 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
     MsalModule.forRoot({
       auth: {
         clientId: 'a984ae93-11e1-4ebb-8a65-061c3fda7bbc', // This is your client ID
-        authority: 'f8cdef31-a31e-4b4a-93e4-5f571e91255a',
+        // authority: 'f8cdef31-a31e-4b4a-93e4-5f571e91255a',
         redirectUri: 'https://simulador-cocina.web.app'// This is your redirect URI
       },
       cache: {

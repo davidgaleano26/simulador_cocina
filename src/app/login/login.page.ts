@@ -22,13 +22,14 @@ export class LoginPage implements OnInit {
   email: string;
   password: string;
 
-  constructor(public router: Router,private autService: SocialAuthService,public menuctrl: MenuController,  private broadcastService: BroadcastService, private auhService: MsalService, private authService: AuthService) { }
+  // tslint:disable-next-line: max-line-length
+  constructor(public router: Router, private autService: SocialAuthService, public menuctrl: MenuController,  private broadcastService: BroadcastService, private auhService: MsalService, private authService: AuthService) { }
 
-  ngOnInit() {    
+  ngOnInit() {
   }
 
   onSubmitLogin(){
-    this.authService.login(this.email, this.password).then( res =>{
+    this.authService.login(this.email, this.password).then( res => {
       this.router.navigate(['/inicio/']);
     }).catch(err => alert('Los Datos son Incorrectos o no Existe el Usuario'));
   }
