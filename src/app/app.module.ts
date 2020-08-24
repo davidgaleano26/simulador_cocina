@@ -44,7 +44,7 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
     MsalModule.forRoot({
       auth: {
         clientId: 'a984ae93-11e1-4ebb-8a65-061c3fda7bbc', // This is your client ID
-        authority: 'f8cdef31-a31e-4b4a-93e4-5f571e91255a',
+        // authority: 'f8cdef31-a31e-4b4a-93e4-5f571e91255a',
         redirectUri: 'https://simulador-cocina.web.app'// This is your redirect URI
       },
       cache: {
