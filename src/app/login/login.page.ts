@@ -15,13 +15,22 @@ import { Extractor } from '@angular/compiler';
 export class LoginPage implements OnInit {
   user: SocialUser;
   loggedIn: boolean;
+
   http: any;
   profile: any;
-  // tslint:disable-next-line: max-line-length
-  constructor( public router: Router, private autService: SocialAuthService, public menuctrl: MenuController, private broadcastService: BroadcastService, private authService: MsalService) {}
 
-  ngOnInit() {
+  email: string;
+  password: string;
 
+  constructor(public router: Router,private autService: SocialAuthService,public menuctrl: MenuController,  private broadcastService: BroadcastService, private auhService: MsalService, private authService: AuthService) { }
+
+  ngOnInit() {    
+  }
+
+  onSubmitLogin(){
+    this.authService.login(this.email, this.password).then( res =>{
+      this.router.navigate(['/inicio/']);
+    }).catch(err => alert('Los Datos son Incorrectos o no Existe el Usuario'));
   }
   // loginGoogle(){
   //   this.authService.loginWithGoogle().then(() => {
@@ -52,12 +61,12 @@ export class LoginPage implements OnInit {
       scopes: ['user.read']
     };
     if (isIE) {
-      this.authService.loginRedirect({
+      this.auhService.loginRedirect({
         extraScopesToConsent: ['user.read', 'openid', 'profile']
 
       });
       // tslint:disable-next-line: only-arrow-functions
-      this.authService.acquireTokenSilent(requestObj).then(function(tokenResponse) {
+      this.auhService.acquireTokenSilent(requestObj).then(function(tokenResponse) {
         // Callback code here
         console.log(tokenResponse.accessToken);
       // tslint:disable-next-line: only-arrow-functions
@@ -66,11 +75,11 @@ export class LoginPage implements OnInit {
       });
       return this.router.navigate(['/inicio']);
     } else {
-      this.authService.loginPopup({
+      this.auhService.loginPopup({
         extraScopesToConsent: ['user.read', 'openid', 'profile']
       });
       // tslint:disable-next-line: only-arrow-functions
-      this.authService.acquireTokenSilent(requestObj).then(function(tokenResponse) {
+      this.auhService.acquireTokenSilent(requestObj).then(function(tokenResponse) {
         // Callback code here
         console.log(tokenResponse.accessToken);
       // tslint:disable-next-line: only-arrow-functions

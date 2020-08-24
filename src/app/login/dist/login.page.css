@@ -1,0 +1,167 @@
+.center {
+  width: 100%;
+  padding: 10px;
+}
+
+.login_header {
+  background-color: blue;
+}
+
+/*
+.logo-img{
+    display: block;
+    width: 100%;    
+}
+*/
+[heading-column-lr] {
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+[big-heading] {
+  font-size: 25px;
+  color: black;
+}
+
+[small-heading] {
+  margin-left: auto;
+  padding-right: 40px;
+  font-size: 15px;
+}
+
+ion-label {
+  color: black;
+  opacity: 0.8;
+  font-size: 13px;
+  display: block;
+  margin: 10px;
+}
+
+[transparent] {
+  /*Agregado de registro.page.scss*/
+  --background:transparent !important;
+  --border-color: transparent!important;
+  --highlight-height: 0;
+  /*Agregado*/
+  color: black;
+  margin-bottom: 0.5rem;
+  /*Por defecto*/
+  background: transparent;
+  border: 3px solid #dedede;
+  border-radius: 30px;
+}
+[transparent].item-has-focus {
+  border: 3px solid #2d5dc4;
+  /*border: 3px solid rgb(24, 129, 228);*/
+  /*height: 65px;*/
+  /*margin: 0px;*/
+}
+
+ion-input {
+  font-size: 15px;
+  text-indent: 1px;
+  padding-left: 1rem !important;
+  margin: 0px;
+  font-weight: 500;
+}
+
+[icon-small] {
+  width: 20px;
+}
+
+[linespace] {
+  height: 25px;
+}
+
+/*
+.button-login{    
+    height: 50px;
+    font-size: 18px;
+}
+.button-new{
+    height: 50px;
+    font-size: 18px;
+}
+.button-google{
+    border: 1px solid rgb(24, 129, 228);
+    border-radius: 30px;
+    height: 50px;
+    color: rgb(41, 31, 24);
+    font-size: 18px;
+}
+*/
+ion-icon {
+  color: #ffffff;
+}
+
+/*@media screen and (min-width: 650px) {
+ .logo-img{
+     width: 45%;
+ }
+ .button-login{    
+    width: 250px;
+    display: block;
+    float: left;
+
+}
+.button-new{
+    width: 250px;
+    display: block;
+    float: left;
+}
+.button-google{
+    width: 250px;
+    display: block;
+    float: left;
+
+}
+ } 
+*/
+/**************************************************************************/
+img {
+  max-width: 100%;
+}
+
+.boton {
+  display: block;
+}
+
+main ion-button:first-of-type {
+  margin-top: 1rem;
+}
+
+.contenedor {
+  max-width: 20rem;
+  margin: 0 auto 0 auto;
+  padding-top: 2rem;
+}
+
+.logo-img {
+  display: block;
+  margin: 0 auto 1.5rem auto;
+  width: 60%;
+}
+
+.fondo-login {
+  background-image: url("../../assets/img/fondoLogin.jpg");
+  background-position: center center;
+  background-size: cover;
+  height: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .logo-img {
+    width: 70%;
+  }
+
+  .contenedor {
+    padding-top: 0;
+  }
+
+  .fondo-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
