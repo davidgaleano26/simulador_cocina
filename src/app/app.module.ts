@@ -21,7 +21,8 @@ import {
   FacebookLoginProvider,
   AmazonLoginProvider,
 } from 'angularx-social-login';
-
+import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
+const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
 @NgModule({
   declarations: [AppComponent, LoginPipe],
@@ -33,7 +34,29 @@ import {
     AngularFireAuthModule,
     SocialLoginModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    MsalModule.forRoot({
+      auth: {
+        clientId: 'a984ae93-11e1-4ebb-8a65-061c3fda7bbc', // This is your client ID
+        redirectUri: 'https://simulador-cocina.web.app'// This is your redirect URI
+      },
+      cache: {
+        cacheLocation: 'localStorage',
+        storeAuthStateInCookie: isIE, // Set to true for Internet Explorer 11
+      },
+    }, {
+      popUp: !isIE,
+      consentScopes: [
+        'user.read',
+        'openid',
+        'profile',
+      ],
+      unprotectedResources: [],
+      protectedResourceMap: [
+        ['https://graph.microsoft.com/v1.0/me', ['user.read']]
+      ],
+      extraQueryParameters: {}
+    })
   ],
   providers: [
     GooglePlus,

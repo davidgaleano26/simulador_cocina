@@ -5,7 +5,7 @@ import { SocialAuthService } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
 import { SocialUser } from "angularx-social-login";
 import { MenuController } from '@ionic/angular';
-
+import { MsalService, BroadcastService } from '@azure/msal-angular';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -14,8 +14,7 @@ import { MenuController } from '@ionic/angular';
 export class LoginPage implements OnInit {
   user: SocialUser;
   loggedIn: boolean;
-
-  constructor(private authService: AuthService, public router: Router,private autService: SocialAuthService,public menuctrl: MenuController) { }
+  constructor( public router: Router,private autService: SocialAuthService,public menuctrl: MenuController,private broadcastService: BroadcastService, private authService: MsalService) {}
 
   ngOnInit() {
     
@@ -43,4 +42,17 @@ export class LoginPage implements OnInit {
  ionViewDidLeave() {
    this.menuctrl.enable(true);
  } 
+ login() {
+    const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
+
+    if (isIE) {
+      this.authService.loginRedirect({
+        extraScopesToConsent: ["user.read", "openid", "profile"]
+      });
+    } else {
+      this.authService.loginPopup({
+        extraScopesToConsent: ["user.read", "openid", "profile"]
+      });
+    }
+}
 }
