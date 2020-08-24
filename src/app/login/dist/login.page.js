@@ -10,11 +10,13 @@ exports.LoginPage = void 0;
 var core_1 = require("@angular/core");
 var angularx_social_login_1 = require("angularx-social-login");
 var LoginPage = /** @class */ (function () {
-    function LoginPage(authService, router, autService, menuctrl) {
-        this.authService = authService;
+    function LoginPage(router, autService, menuctrl, broadcastService, auhService, authService) {
         this.router = router;
         this.autService = autService;
         this.menuctrl = menuctrl;
+        this.broadcastService = broadcastService;
+        this.auhService = auhService;
+        this.authService = authService;
     }
     LoginPage.prototype.ngOnInit = function () {
     };
@@ -35,7 +37,7 @@ var LoginPage = /** @class */ (function () {
         var entramos = this.autService.signIn(angularx_social_login_1.GoogleLoginProvider.PROVIDER_ID);
         console.log(entramos);
         if (!entramos) {
-            alert("No funciona");
+            alert('No funciona');
         }
         else {
             this.router.navigate(['/inicio']);
@@ -46,6 +48,47 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage.prototype.ionViewDidLeave = function () {
         this.menuctrl.enable(true);
+    };
+    LoginPage.prototype.login = function () {
+        var isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
+        var requestObj = {
+            scopes: ['user.read']
+        };
+        if (isIE) {
+            this.auhService.loginRedirect({
+                extraScopesToConsent: ['user.read', 'openid', 'profile']
+            });
+            // tslint:disable-next-line: only-arrow-functions
+            this.auhService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
+                // Callback code here
+                console.log(tokenResponse.accessToken);
+                // tslint:disable-next-line: only-arrow-functions
+            })["catch"](function (error) {
+                console.log(error);
+            });
+        }
+        else {
+            this.auhService.loginPopup({
+                extraScopesToConsent: ['user.read', 'openid', 'profile']
+            });
+            // tslint:disable-next-line: only-arrow-functions
+            this.auhService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
+                // Callback code here
+                console.log(tokenResponse.accessToken);
+                // tslint:disable-next-line: only-arrow-functions
+            })["catch"](function (error) {
+                console.log(error);
+            });
+        }
+        return this.router.navigate(['/inicio']);
+    };
+    LoginPage.prototype.getProfile = function () {
+        var _this = this;
+        var graphMeEndpoint = 'https://graph.microsoft.com/v1.0/me';
+        this.http.get(graphMeEndpoint).toPromise()
+            .then(function (profile) {
+            _this.profile = profile;
+        });
     };
     LoginPage = __decorate([
         core_1.Component({
