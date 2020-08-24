@@ -1,4 +1,59 @@
+<ion-header no-border> </ion-header>
 
+<ion-content>
+  <div class="fondo-login">
+    <main class="contenedor">
+      <a href="https://politecnicointernacional.edu.co">
+        <img class="logo-img" src="../../assets/img/login-icono.png" alt="" />
+      </a>
+
+      <ion-item transparent>
+        <img
+          icon-small
+          src="../../assets/icon/perfil.png"
+          alt="Icono usuario"
+        />
+        <ion-input
+          placeholder="Usuario"
+          type="text"
+          name="usuario"
+          [(ngModel)]="email"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item transparent>
+        <img
+          icon-small
+          src="../../assets/icon/contrasena.png"
+          alt="Icono contrasena"
+        />
+        <ion-input
+          placeholder="Contraseña"
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+        ></ion-input>
+      </ion-item>
+
+      <div class="botones">
+        <ion-button class="boton" shape="round" (click)="onSubmitLogin()"
+          >Ingresar</ion-button
+        >
+
+        <ion-button class="boton" shape="round" (click)="signInWithGoogle()"
+          ><ion-icon slot="start" name="logo-google"></ion-icon>inicia sesión
+          con Google</ion-button
+        >
+
+        <ion-button class="boton" shape="round" [routerLink]="['/registro/']"
+          >Únete a nosotros</ion-button
+        >
+      </div>
+    </main>
+  </div>
+</ion-content>
+
+<!--
 <ion-header no-border>
   <div class="login-header ion-padding">
     <img class="logo-img" src="../../assets/img/fondo.PNG" alt="">
@@ -32,3 +87,4 @@
   </div>
 
 </ion-content>
+-->

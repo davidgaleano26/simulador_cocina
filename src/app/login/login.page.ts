@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService} from '../servicios/auth.service';
-import { Router} from '@angular/router';
+import { AuthService } from '../servicios/auth.service';
+import { Router } from '@angular/router';
 import { SocialAuthService } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
 import { SocialUser } from "angularx-social-login";
@@ -15,10 +15,18 @@ export class LoginPage implements OnInit {
   user: SocialUser;
   loggedIn: boolean;
 
+  email: string;
+  password: string;
+
   constructor(private authService: AuthService, public router: Router,private autService: SocialAuthService,public menuctrl: MenuController) { }
 
-  ngOnInit() {
-    
+  ngOnInit() {    
+  }
+
+  onSubmitLogin(){
+    this.authService.login(this.email, this.password).then( res =>{
+      this.router.navigate(['/inicio/']);
+    }).catch(err => alert('Los Datos son Incorrectos o no Existe el Usuario'));
   }
   // loginGoogle(){
   //   this.authService.loginWithGoogle().then(() => {

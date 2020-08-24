@@ -10,9 +10,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginPipe } from './login.pipe';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { firebaseConfig } from '../environments/environment';
-import { AngularFireModule} from '@angular/fire';
+/*import { AngularFireAuthModule } from '@angular/fire/auth';*/
+/*import { firebaseConfig } from '../environments/environment';*/
+/*import { AngularFireModule} from '@angular/fire';*/
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
@@ -21,6 +21,10 @@ import {
   FacebookLoginProvider,
   AmazonLoginProvider,
 } from 'angularx-social-login';
+
+import { firebaseConfig } from "../environments/environment";
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
 
 
 @NgModule({
