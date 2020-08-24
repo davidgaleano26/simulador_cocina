@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService} from '../servicios/auth.service';
 import { Router} from '@angular/router';
-import { SocialAuthService } from "angularx-social-login";
-import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
-import { SocialUser } from "angularx-social-login";
+import { SocialAuthService } from 'angularx-social-login';
+import { FacebookLoginProvider, GoogleLoginProvider } from 'angularx-social-login';
+import { SocialUser } from 'angularx-social-login';
 import { MenuController } from '@ionic/angular';
 import { MsalService, BroadcastService } from '@azure/msal-angular';
 import { Extractor } from '@angular/compiler';
@@ -18,7 +18,7 @@ export class LoginPage implements OnInit {
   constructor( public router: Router,private autService: SocialAuthService,public menuctrl: MenuController,private broadcastService: BroadcastService, private authService: MsalService) {}
 
   ngOnInit() {
-    
+
   }
   // loginGoogle(){
   //   this.authService.loginWithGoogle().then(() => {
@@ -29,9 +29,9 @@ export class LoginPage implements OnInit {
   // }
   signInWithGoogle():void{
     const entramos = this.autService.signIn(GoogleLoginProvider.PROVIDER_ID);
-    console.log(entramos)
+    console.log(entramos);
     if (!entramos){
-      alert("No funciona");
+      alert('No funciona');
     }
     else{
     this.router.navigate(['/inicio']);
@@ -42,37 +42,41 @@ export class LoginPage implements OnInit {
  }
  ionViewDidLeave() {
    this.menuctrl.enable(true);
- } 
+ }
  login() {
     const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
     const requestObj = {
-      scopes: ["user.read"]
+      scopes: ['user.read']
     };
     if (isIE) {
       this.authService.loginRedirect({
-        extraScopesToConsent: ["user.read", "openid", "profile"]
-        
+        extraScopesToConsent: ['user.read', 'openid', 'profile']
+
       });
-      this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
+      // tslint:disable-next-line: only-arrow-functions
+      this.authService.acquireTokenSilent(requestObj).then(function(tokenResponse) {
         // Callback code here
         console.log(tokenResponse.accessToken);
-      }).catch(function (error) {
+      // tslint:disable-next-line: only-arrow-functions
+      }).catch(function(error) {
         console.log(error);
       });
-      
+
     } else {
       this.authService.loginPopup({
-        extraScopesToConsent: ["user.read", "openid", "profile"]
+        extraScopesToConsent: ['user.read', 'openid', 'profile']
       });
-      this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
+      // tslint:disable-next-line: only-arrow-functions
+      this.authService.acquireTokenSilent(requestObj).then(function(tokenResponse) {
         // Callback code here
         console.log(tokenResponse.accessToken);
-      }).catch(function (error) {
+      // tslint:disable-next-line: only-arrow-functions
+      }).catch(function(error) {
         console.log(error);
       });
     }
-  return this.router.navigate(['/inicio']);
-} 
+    return this.router.navigate(['/inicio']);
+}
 
 
 
