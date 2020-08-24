@@ -6,11 +6,12 @@
 .login_header{
     background-color: blue ;
 }
+/*
 .logo-img{
     display: block;
-    width: 100%;
-
+    width: 100%;    
 }
+*/
 [heading-column-lr]{
     display: flex;
     -ms-flex-align: center;
@@ -36,28 +37,43 @@ ion-label{
     margin: 10px;
 }
 [transparent]{
+
+    /*Agregado de registro.page.scss*/
+    --background:transparent !important;
+    --border-color: transparent!important;
+    --highlight-height: 0;
+
+    /*Agregado*/
+    color: black;
+    margin-bottom: 0.5rem;
+
+    /*Por defecto*/
     background: transparent;
-    border: 1px solid #dedede;
-    border-radius: 10px;
+    border: 3px solid #dedede;
+    border-radius: 30px;
     &.item-has-focus {
-        border: 3px solid rgb(24, 129, 228);
-        height: 65px;
-        margin: 0px;
+        border: 3px solid #2d5dc4;
+        /*border: 3px solid rgb(24, 129, 228);*/
+        /*height: 65px;*/
+        /*margin: 0px;*/
     }
 }
 
 ion-input{
     font-size: 15px;
     text-indent: 1px;
-    padding-left: 10px;
-    margin: 10px;
+    padding-left: 1rem !important;
+    margin: 0px;
+
+    font-weight: 500;
 }
 [icon-small]{
-    width: 30px;
+    width: 20px;
 }
 [linespace]{
     height: 25px;
 }
+/*
 .button-login{    
     height: 50px;
     font-size: 18px;
@@ -73,11 +89,12 @@ ion-input{
     color: rgb(41, 31, 24);
     font-size: 18px;
 }
+*/
 ion-icon{
-    color: royalblue;
+    color: #ffffff;
 }
 
-@media screen and (min-width: 650px) {
+/*@media screen and (min-width: 650px) {
  .logo-img{
      width: 45%;
  }
@@ -98,4 +115,45 @@ ion-icon{
     float: left;
     
 }
- }
+ } 
+*/
+
+ /**************************************************************************/
+img{
+    max-width: 100%;
+}
+.boton{
+    display: block;
+}
+main ion-button:first-of-type{
+    margin-top: 1rem;
+}
+.contenedor{
+    max-width: 20rem;
+    margin: 0 auto 0 auto;
+    padding-top: 2rem;
+}
+.logo-img{
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    width: 60%;
+}
+.fondo-login{
+    background-image: url("../../assets/img/fondoLogin.jpg");
+    background-position: center center;
+    background-size: cover;
+    height: 100%;
+}
+@media screen and (min-width: 768px) {    
+    .logo-img{
+        width: 70%;
+    }
+    .contenedor{
+        padding-top: 0;
+    }
+    .fondo-login{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -1,1 +1,11 @@
-{}
+{
+  "targets": {
+    "baselogin-e6cb3": {
+      "hosting": {
+        "app": [
+          "baselogin-e6cb3"
+        ]
+      }
+    }
+  }
+}

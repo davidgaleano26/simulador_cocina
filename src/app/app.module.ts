@@ -10,9 +10,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginPipe } from './login.pipe';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { firebaseConfig } from '../environments/environment';
-import { AngularFireModule} from '@angular/fire';
+/*import { AngularFireAuthModule } from '@angular/fire/auth';*/
+/*import { firebaseConfig } from '../environments/environment';*/
+/*import { AngularFireModule} from '@angular/fire';*/
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
@@ -22,6 +22,13 @@ import {
   AmazonLoginProvider,
 } from 'angularx-social-login';
 
+import { firebaseConfig } from "../environments/environment";
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+
+import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
+const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
 @NgModule({
   declarations: [AppComponent, LoginPipe],
@@ -33,13 +40,41 @@ import {
     AngularFireAuthModule,
     SocialLoginModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    MsalModule.forRoot({
+      auth: {
+        clientId: 'a984ae93-11e1-4ebb-8a65-061c3fda7bbc', // This is your client ID
+        authority: 'f8cdef31-a31e-4b4a-93e4-5f571e91255a',
+        redirectUri: 'https://simulador-cocina.web.app'// This is your redirect URI
+      },
+      cache: {
+        cacheLocation: 'localStorage',
+        storeAuthStateInCookie: isIE, // Set to true for Internet Explorer 11
+      },
+    }, {
+      popUp: !isIE,
+      consentScopes: [
+        'user.read',
+        'openid',
+        'profile',
+      ],
+      unprotectedResources: [],
+      protectedResourceMap: [
+        ['https://graph.microsoft.com/v1.0/me', ['user.read']]
+      ],
+      extraQueryParameters: {}
+    })
   ],
   providers: [
     GooglePlus,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MsalInterceptor,
+      multi: true
+  },
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {

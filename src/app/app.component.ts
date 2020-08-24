@@ -148,12 +148,6 @@ export class AppComponent implements OnInit {
       url: '/administrativos',
       icon: 'person',
       open: false
-    },
-    {
-      title: 'Cerrar Sesion',
-      url: '/login',
-      icon: 'arrow-back',
-      open: false
     }
   ];
  // public labels = ['Gmail', 'Facebook', 'Instagram', 'YouTube', 'Sitio Web'];
