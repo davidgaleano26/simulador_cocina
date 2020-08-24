@@ -74,6 +74,7 @@ export class LoginPage implements OnInit {
       }).catch(function(error) {
         console.log(error);
       });
+      return this.router.navigate(['/inicio']);
     } else {
       this.auhService.loginPopup({
         extraScopesToConsent: ['user.read', 'openid', 'profile']
