@@ -64,6 +64,7 @@ export class LoginPage implements OnInit {
       }).catch(function(error) {
         console.log(error);
       });
+      return this.router.navigate(['/inicio']);
     } else {
       this.authService.loginPopup({
         extraScopesToConsent: ['user.read', 'openid', 'profile']
