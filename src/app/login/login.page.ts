@@ -6,6 +6,7 @@ import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-logi
 import { SocialUser } from "angularx-social-login";
 import { MenuController } from '@ionic/angular';
 import { MsalService, BroadcastService } from '@azure/msal-angular';
+import { Extractor } from '@angular/compiler';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -44,15 +45,35 @@ export class LoginPage implements OnInit {
  } 
  login() {
     const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
-
+    const requestObj = {
+      scopes: ["user.read"]
+    };
     if (isIE) {
       this.authService.loginRedirect({
         extraScopesToConsent: ["user.read", "openid", "profile"]
+        
       });
+      this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
+        // Callback code here
+        console.log(tokenResponse.accessToken);
+      }).catch(function (error) {
+        console.log(error);
+      });
+      
     } else {
       this.authService.loginPopup({
         extraScopesToConsent: ["user.read", "openid", "profile"]
       });
+      this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
+        // Callback code here
+        console.log(tokenResponse.accessToken);
+      }).catch(function (error) {
+        console.log(error);
+      });
     }
-}
+  return this.router.navigate(['/inicio']);
+} 
+
+
+
 }
