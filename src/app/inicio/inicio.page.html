@@ -18,7 +18,7 @@
     <ion-row>
       <ion-col>
         <div>
-          <ion-card class="bordes-Card">
+          <ion-card (click)="openModal()" class="bordes-Card">
             <ion-card-header>
               <ion-icon class="mi-icono" name="film"></ion-icon>
             </ion-card-header>
@@ -31,7 +31,7 @@
       </ion-col>
       <ion-col>
         <div>
-          <ion-card class="bordes-Card">
+          <ion-card (click)="openModalTips() " class="bordes-Card">
             <ion-card-header>
               <ion-icon class="mi-icono" name="restaurant"></ion-icon>
             </ion-card-header>
@@ -47,7 +47,7 @@
     <ion-row>
       <ion-col>
         <div>
-          <ion-card class="bordes-Card">
+          <ion-card (click)="openModalTalleres()" class="bordes-Card">
             <ion-card-header>
               <ion-icon class="mi-icono" name="documents"></ion-icon>
             </ion-card-header>
@@ -60,7 +60,7 @@
       </ion-col>
       <ion-col>
         <div>
-          <ion-card class="bordes-Card">
+          <ion-card (click)="openModalRecetas()" class="bordes-Card">
             <ion-card-header>
               <ion-icon class="mi-icono" name="pizza"></ion-icon>
             </ion-card-header>
@@ -76,7 +76,7 @@
     <ion-row>
       <ion-col>
         <div>
-          <ion-card class="bordes-Card">    
+          <ion-card (click)="openModalPreguntas()" class="bordes-Card">    
           <ion-card-header>
             <ion-icon class="mi-icono" name="help"></ion-icon>
           </ion-card-header>
@@ -89,7 +89,7 @@
       </ion-col>
       <ion-col>
         <div>
-          <ion-card class="bordes-Card">    
+          <ion-card (click)="openModalCalendario()" class="bordes-Card">    
             <ion-card-header>
               <ion-icon class="mi-icono" name="calendar"></ion-icon>
             </ion-card-header>

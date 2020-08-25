@@ -49,7 +49,31 @@ const routes: Routes = [
   {
     path: 'quienes-somos',
     loadChildren: () => import('./quienes-somos/quienes-somos.module').then( m => m.QuienesSomosPageModule)
+  },  {
+    path: 'calendario',
+    loadChildren: () => import('./calendario/calendario.module').then( m => m.CalendarioPageModule)
+  },
+  {
+    path: 'preguntas',
+    loadChildren: () => import('./preguntas/preguntas.module').then( m => m.PreguntasPageModule)
+  },
+  {
+    path: 'videos',
+    loadChildren: () => import('./videos/videos.module').then( m => m.VideosPageModule)
+  },
+  {
+    path: 'tips',
+    loadChildren: () => import('./tips/tips.module').then( m => m.TipsPageModule)
+  },
+  {
+    path: 'recetas',
+    loadChildren: () => import('./recetas/recetas.module').then( m => m.RecetasPageModule)
+  },
+  {
+    path: 'talleres',
+    loadChildren: () => import('./talleres/talleres.module').then( m => m.TalleresPageModule)
   }
+
 
 
 ];
