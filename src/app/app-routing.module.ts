@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-/*Guards*/
+/*Importar el Guard*/
 import { AuthGuard } from "./guards/auth.guard";
 import { NologinGuard } from "./guards/nologin.guard";
 
@@ -18,7 +18,6 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
-    /*Guard Nologin*/
     canActivate : [NologinGuard]
   },
   {
@@ -38,6 +37,26 @@ const routes: Routes = [
     loadChildren: () => import('./administrativos/administrativos.module').then( m => m.AdministrativosPageModule)
   },
   {
+    path: 'calendario',
+    loadChildren: () => import('./calendario/calendario.module').then( m => m.CalendarioPageModule)
+  },
+  {
+    path: 'preguntas',
+    loadChildren: () => import('./preguntas/preguntas.module').then( m => m.PreguntasPageModule)
+  },
+  {
+    path: 'videos',
+    loadChildren: () => import('./videos/videos.module').then( m => m.VideosPageModule)
+  },
+  {
+    path: 'tips',
+    loadChildren: () => import('./tips/tips.module').then( m => m.TipsPageModule)
+  },
+  {
+    path: 'recetas',
+    loadChildren: () => import('./recetas/recetas.module').then( m => m.RecetasPageModule)
+  },
+  {
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule),
     canActivate : [NologinGuard]
@@ -55,7 +74,12 @@ const routes: Routes = [
   {
     path: 'quienes-somos',
     loadChildren: () => import('./quienes-somos/quienes-somos.module').then( m => m.QuienesSomosPageModule)
+  },
+  {
+    path: 'talleres',
+    loadChildren: () => import('./talleres/talleres.module').then( m => m.TalleresPageModule)
   }
+
 
 
 ];
