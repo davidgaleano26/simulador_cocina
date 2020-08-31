@@ -6,8 +6,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SocialAuthService } from "angularx-social-login";
 import { SocialUser } from "angularx-social-login";
 import { Router} from '@angular/router';
-
-
+import { MsalService, BroadcastService } from '@azure/msal-angular';
+import { HttpClient } from '@angular/common/http';
+import { InteractionRequiredAuthError, AuthError } from 'msal';
+const graphMeEndpoint = 'https://graph.microsoft.com/v1.0/me';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -18,6 +20,7 @@ export class AppComponent implements OnInit {
   path: string = null;
   user: SocialUser;
   loggedIn: boolean;
+  profile;
   public open: string = null;
 
 
@@ -157,7 +160,9 @@ export class AppComponent implements OnInit {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private autService: SocialAuthService,
-    public router: Router
+    public router: Router,
+    private auhService: MsalService,
+    private http: HttpClient
     ) {
       this.initializeApp();
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
@@ -182,6 +187,7 @@ export class AppComponent implements OnInit {
   //   console.log(this.path);
   // }
   ngOnInit() {
+    this.getProfile();
     const path = window.location.pathname.split('folder/')[1];
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
@@ -190,22 +196,36 @@ export class AppComponent implements OnInit {
       this.user = user;
       this.loggedIn = (user != null);
     });
-}
-cambio(){
-
-this.darkMode = !this.darkMode,
-     document.body.classList.toggle('dark');
- }
- verdadero(){
-  const uno = document.body.classList.value;
-  if (uno === 'dark'){
-    return true;
   }
-  else{
-    return false;
+  cambio(){
+    
+    this.darkMode = !this.darkMode,
+    document.body.classList.toggle('dark');
   }
- }
+  verdadero(){
+    const uno = document.body.classList.value;
+    console.log(graphMeEndpoint);
+    if (uno === 'dark'){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+  
+  getProfile() {
+    this.http.get(graphMeEndpoint).toPromise()
+      .then(profile => {
+        this.profile = profile;
+      });
+  }
+////////// CIERRE DE SESIÓN CON GOOGLE
  signOut(): void {
     this.autService.signOut();
 }
+//////// CIERRE DE SESIÓN CON MICROSOFT
+logout(){
+  this.auhService.logout();
+}
+
 }

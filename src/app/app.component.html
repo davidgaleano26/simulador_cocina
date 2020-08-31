@@ -3,9 +3,11 @@
     <ion-menu contentId="main-content" type="overlay" >
       <!-- [hidden]="true" -->
       <div class="estilito" *ngIf="!user">
-        <ion-icon slot="start" name="arrow-forward" class="icono"></ion-icon>
+        <!-- <ion-icon slot="start" name="arrow-forward" class="icono"></ion-icon> -->
       <ion-list-header class="titulo">SIMULADOR COCINA</ion-list-header>
-      <ion-note class="subtitulo">Ponerle nombre</ion-note>
+      <ion-note class="subtitulo">{{profile?.givenName}}</ion-note>
+      <ion-note class="subtitulo">{{profile?.jobTitle}}</ion-note>
+      <ion-note class="subtitulo">{{profile?.officeLocation}}</ion-note>
     </div>
       <div class="estilito" *ngIf="user">
         <img src="{{ user.photoUrl }}" class="icono">
@@ -43,7 +45,8 @@
             </ion-menu-toggle>
           </ion-list>
         </div>
-        <ion-button [routerLink]="['/login']" (click)="signOut()" sideMenu="false"> <ion-icon name="open-outline"></ion-icon>Cerrar sesión</ion-button>
+        <ion-button [routerLink]="['/login']" *ngIf="user" (click)="signOut()" sideMenu="false"> <ion-icon name="open-outline"></ion-icon>Cerrar sesión</ion-button>
+        <ion-button [routerLink]="['/login']" *ngIf="profile" (click)="logout()" sideMenu="false"> <ion-icon name="open-outline"></ion-icon>Cerrar sesión</ion-button>
       </ion-list>
         <ion-list id="labels-list">
           <ion-list-header>Redes sociales</ion-list-header>

@@ -34,13 +34,15 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
     AppRoutingModule,
     AngularFireAuthModule,
     SocialLoginModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(firebaseConfig),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     MsalModule.forRoot({
       auth: {
-        clientId: 'a984ae93-11e1-4ebb-8a65-061c3fda7bbc', // This is your client ID
-        // authority: 'f8cdef31-a31e-4b4a-93e4-5f571e91255a',
-        redirectUri: 'https://simulador-cocina.web.app'// This is your redirect URI
+        clientId: '77d8101b-ef65-4713-a5f9-a5c73784e382', // This is your client ID
+        authority: 'https://login.microsoftonline.com/organizations',
+        redirectUri: 'http://localhost:8100/inicio',// This is your redirect URI
+        postLogoutRedirectUri: "http://localhost:8100/login"
       },
       cache: {
         cacheLocation: 'localStorage',
