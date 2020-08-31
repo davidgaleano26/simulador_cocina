@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 /*Importar el Guard*/
 import { AuthGuard } from "./guards/auth.guard";
+import { NologinGuard } from "./guards/nologin.guard";
 
 const routes: Routes = [
   {
@@ -16,7 +17,8 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
+    canActivate : [NologinGuard]
   },
   {
     path: 'egresados',
@@ -35,21 +37,6 @@ const routes: Routes = [
     loadChildren: () => import('./administrativos/administrativos.module').then( m => m.AdministrativosPageModule)
   },
   {
-    path: 'registro',
-    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
-  },
-  {
-    path: 'inicio',
-    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
-  },
-  {
-    path: 'estudiantes',
-    loadChildren: () => import('./estudiantes/estudiantes.module').then( m => m.EstudiantesPageModule)
-  },
-  {
-    path: 'quienes-somos',
-    loadChildren: () => import('./quienes-somos/quienes-somos.module').then( m => m.QuienesSomosPageModule)
-  },  {
     path: 'calendario',
     loadChildren: () => import('./calendario/calendario.module').then( m => m.CalendarioPageModule)
   },
@@ -68,6 +55,25 @@ const routes: Routes = [
   {
     path: 'recetas',
     loadChildren: () => import('./recetas/recetas.module').then( m => m.RecetasPageModule)
+  },
+  {
+    path: 'registro',
+    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule),
+    canActivate : [NologinGuard]
+  },
+  {
+    path: 'inicio',
+    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule),
+    /*Guard AuthGuard*/
+    canActivate : [AuthGuard]
+  },
+  {
+    path: 'estudiantes',
+    loadChildren: () => import('./estudiantes/estudiantes.module').then( m => m.EstudiantesPageModule)
+  },
+  {
+    path: 'quienes-somos',
+    loadChildren: () => import('./quienes-somos/quienes-somos.module').then( m => m.QuienesSomosPageModule)
   },
   {
     path: 'talleres',

@@ -47,6 +47,8 @@
         </div>
         <ion-button [routerLink]="['/login']" *ngIf="user" (click)="signOut()" sideMenu="false"> <ion-icon name="open-outline"></ion-icon>Cerrar sesión</ion-button>
         <ion-button [routerLink]="['/login']" *ngIf="profile" (click)="logout()" sideMenu="false"> <ion-icon name="open-outline"></ion-icon>Cerrar sesión</ion-button>
+        <ion-button [routerLink]="['/login']" (click)="onlogOut()" sideMenu="false"> <ion-icon name="open-outline"></ion-icon>Cerrar sesión</ion-button>
+        <!--<ion-button (click)="signOut()"</ion-button>-->
       </ion-list>
         <ion-list id="labels-list">
           <ion-list-header>Redes sociales</ion-list-header>

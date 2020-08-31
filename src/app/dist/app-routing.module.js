@@ -9,6 +9,9 @@ exports.__esModule = true;
 exports.AppRoutingModule = void 0;
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+/*Guards*/
+var auth_guard_1 = require("./guards/auth.guard");
+var nologin_guard_1 = require("./guards/nologin.guard");
 var routes = [
     {
         path: '',
@@ -21,7 +24,9 @@ var routes = [
     },
     {
         path: 'login',
-        loadChildren: function () { return Promise.resolve().then(function () { return require('./login/login.module'); }).then(function (m) { return m.LoginPageModule; }); }
+        loadChildren: function () { return Promise.resolve().then(function () { return require('./login/login.module'); }).then(function (m) { return m.LoginPageModule; }); },
+        /*Guard Nologin*/
+        canActivate: [nologin_guard_1.NologinGuard]
     },
     {
         path: 'egresados',
@@ -41,11 +46,14 @@ var routes = [
     },
     {
         path: 'registro',
-        loadChildren: function () { return Promise.resolve().then(function () { return require('./registro/registro.module'); }).then(function (m) { return m.RegistroPageModule; }); }
+        loadChildren: function () { return Promise.resolve().then(function () { return require('./registro/registro.module'); }).then(function (m) { return m.RegistroPageModule; }); },
+        canActivate: [nologin_guard_1.NologinGuard]
     },
     {
         path: 'inicio',
-        loadChildren: function () { return Promise.resolve().then(function () { return require('./inicio/inicio.module'); }).then(function (m) { return m.InicioPageModule; }); }
+        loadChildren: function () { return Promise.resolve().then(function () { return require('./inicio/inicio.module'); }).then(function (m) { return m.InicioPageModule; }); },
+        /*Guard AuthGuard*/
+        canActivate: [auth_guard_1.AuthGuard]
     },
     {
         path: 'estudiantes',

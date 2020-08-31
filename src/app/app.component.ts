@@ -9,7 +9,12 @@ import { Router} from '@angular/router';
 import { MsalService, BroadcastService } from '@azure/msal-angular';
 import { HttpClient } from '@angular/common/http';
 import { InteractionRequiredAuthError, AuthError } from 'msal';
+/**/
+import { AuthService } from './servicios/auth.service';
 const graphMeEndpoint = 'https://graph.microsoft.com/v1.0/me';
+
+
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -162,7 +167,9 @@ export class AppComponent implements OnInit {
     private autService: SocialAuthService,
     public router: Router,
     private auhService: MsalService,
-    private http: HttpClient
+    private http: HttpClient,
+    /**/
+    public authserviice : AuthService
     ) {
       this.initializeApp();
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
@@ -227,5 +234,8 @@ export class AppComponent implements OnInit {
 logout(){
   this.auhService.logout();
 }
-
+ /*M[etodo CerrarSesion*/
+  onlogOut(){
+    this.authserviice.logout();
+  }
 }
