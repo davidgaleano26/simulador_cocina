@@ -1,0 +1,90 @@
+.center {
+  padding: 10px;
+}
+
+ion-item {
+  --background:transparent !important;
+  --border-color: transparent!important;
+  --highlight-height: 0;
+  border: 2px solid #dedede;
+  border-radius: 10px;
+  margin: 10px;
+  color: white;
+}
+ion-item.item-has-focus {
+  border: 3px solid #1881e4;
+  height: 55px;
+  margin: 5px;
+}
+
+[small-heading] {
+  font-size: 2.5rem;
+  color: white;
+  text-align: center;
+}
+
+.button-saved {
+  height: 50px;
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+.button-back {
+  height: 50px;
+  font-size: 18px;
+}
+
+/*
+@media screen and (min-width: 650px) {
+
+
+   .button-saved{
+       width: 250px;
+       display: block;
+       float: left;
+   }
+   .button-back{
+       width: 250px;
+       display: block;
+       float: left;
+       margin-top: 30px;
+   }
+}
+*/
+/**********************************************************************/
+img {
+  max-width: 100%;
+}
+
+.boton {
+  display: block;
+}
+
+main ion-button:first-of-type {
+  margin-top: 1rem;
+}
+
+.contenedor {
+  max-width: 20rem;
+  margin: 0 auto 0 auto;
+  padding-top: 2rem;
+}
+
+.fondo-login {
+  background: url(../../assets/img/fondo_registro2.PNG) no-repeat center/cover;
+  background-position: center center;
+  height: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .contenedor {
+    padding-top: 0;
+    width: 100%;
+  }
+
+  .fondo-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

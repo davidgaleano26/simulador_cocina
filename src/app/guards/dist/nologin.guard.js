@@ -6,34 +6,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.AuthGuard = void 0;
+exports.NologinGuard = void 0;
 var core_1 = require("@angular/core");
 var operators_1 = require("rxjs/operators");
 var util_1 = require("util");
-var AuthGuard = /** @class */ (function () {
-    function AuthGuard(AFauth, router) {
+var NologinGuard = /** @class */ (function () {
+    function NologinGuard(AFauth, router) {
         this.AFauth = AFauth;
         this.router = router;
     }
-    AuthGuard.prototype.canActivate = function (next, state) {
+    NologinGuard.prototype.canActivate = function (next, state) {
         var _this = this;
         return this.AFauth.authState.pipe(operators_1.map(function (auth) {
             if (util_1.isNullOrUndefined(auth)) {
-                _this.router.navigate(['/login']);
-                return false;
+                return true;
             }
             else {
-                return true;
+                _this.router.navigate(['/inicio']);
+                return false;
             }
             //console.log(auth);
             //return false;
         }));
     };
-    AuthGuard = __decorate([
+    NologinGuard = __decorate([
         core_1.Injectable({
             providedIn: 'root'
         })
-    ], AuthGuard);
-    return AuthGuard;
+    ], NologinGuard);
+    return NologinGuard;
 }());
-exports.AuthGuard = AuthGuard;
+exports.NologinGuard = NologinGuard;

@@ -1,10 +1,42 @@
-
-
-<ion-content >
-  <div class="center">
+<ion-content>
+  <div class="fondo-login">
+    <main class="contenedor">
       <h2 small-heading>Registro</h2>
-    
-    
+      <ion-item transparent>
+        <ion-input placeholder="Nombres" type="text" [(ngModel)]="nombres" required></ion-input>
+      </ion-item>
+      <ion-item transparent>
+        <ion-input placeholder="Apellidos" type="text" [(ngModel)]="apellidos" required></ion-input>
+      </ion-item>
+      <ion-item transparent>
+        <ion-input placeholder="Direccion" type="text" [(ngModel)]="direccion" required></ion-input>
+      </ion-item>
+      <ion-item transparent>
+        <ion-input placeholder="Telefono" type="number" [(ngModel)]="telefono" required></ion-input>
+      </ion-item>
+      <ion-item transparent>
+        <ion-input placeholder="Usuario" type="text" [(ngModel)]="email" required></ion-input>
+      </ion-item>
+      <ion-item transparent>
+        <ion-input placeholder="Contraseña" type="password" [(ngModel)]="password" required></ion-input>
+      </ion-item>
+
+      <ion-button class="boton" shape="round" (click)="onSubmitRegister()">Guardar</ion-button>
+      <ion-button
+        color="medium"
+        class="boton"
+        shape="round"
+        [routerLink]="['/login']"
+        >Volver
+      </ion-button>
+    </main>
+  </div>
+</ion-content>
+
+<!--
+<ion-content>
+  <div class="center">
+    <h2 small-heading>Registro</h2>
 
     <ion-item transparent>
       <ion-input placeholder="Nombres" type="text"></ion-input>
@@ -26,11 +58,25 @@
     </ion-item>
 
     <div linespace></div>
-    <ion-button color="primary" class="ion-button-class button-saved" shape="round" fill="solid" size="large"
-      expand="block">Guardar</ion-button>
-    <ion-button color="medium" class="button-back" shape="round" fill="solid" size="large" expand="block" [routerLink]="['/login/']">Volver
+    <ion-button
+      color="primary"
+      class="ion-button-class button-saved"
+      shape="round"
+      fill="solid"
+      size="large"
+      expand="block"
+      >Guardar</ion-button
+    >
+    <ion-button
+      color="medium"
+      class="button-back"
+      shape="round"
+      fill="solid"
+      size="large"
+      expand="block"
+      [routerLink]="['/login/']"
+      >Volver
     </ion-button>
   </div>
-  
-
 </ion-content>
+-->

@@ -11,7 +11,7 @@ import { Router } from "@angular/router";
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class NologinGuard implements CanActivate {
 
   constructor(private AFauth: AngularFireAuth,
     private router: Router) { }
@@ -19,19 +19,18 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      
+
       return this.AFauth.authState.pipe(map( auth => {
 
-        if (isNullOrUndefined(auth)) {
-          this.router.navigate(['/login']);
-          return false;
-        }else{
+        if (isNullOrUndefined(auth)) {          
           return true;
+        }else{
+          this.router.navigate(['/inicio']);
+          return false;
         }
         //console.log(auth);
         //return false;
       }))
-    
   }
   
 }

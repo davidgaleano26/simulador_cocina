@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-/*Importar el Guard*/
+/*Guards*/
 import { AuthGuard } from "./guards/auth.guard";
+import { NologinGuard } from "./guards/nologin.guard";
 
 const routes: Routes = [
   {
@@ -16,7 +17,9 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
+    /*Guard Nologin*/
+    canActivate : [NologinGuard]
   },
   {
     path: 'egresados',
@@ -36,11 +39,14 @@ const routes: Routes = [
   },
   {
     path: 'registro',
-    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule),
+    canActivate : [NologinGuard]
   },
   {
     path: 'inicio',
-    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
+    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule),
+    /*Guard AuthGuard*/
+    canActivate : [AuthGuard]
   },
   {
     path: 'estudiantes',

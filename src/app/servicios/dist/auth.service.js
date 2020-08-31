@@ -10,9 +10,11 @@ exports.AuthService = void 0;
 var core_1 = require("@angular/core");
 var firebase_1 = require("firebase");
 var AuthService = /** @class */ (function () {
-    function AuthService(AFauth, google) {
+    function AuthService(AFauth, google, router, db) {
         this.AFauth = AFauth;
         this.google = google;
+        this.router = router;
+        this.db = db;
     }
     AuthService.prototype.login = function (email, password) {
         var _this = this;
@@ -20,6 +22,29 @@ var AuthService = /** @class */ (function () {
             _this.AFauth.signInWithEmailAndPassword(email, password).then(function (user) {
                 resolve(user);
             })["catch"](function (err) { return rejected(err); });
+        });
+    };
+    AuthService.prototype.logout = function () {
+        var _this = this;
+        this.AFauth.signOut().then(function () {
+            _this.router.navigate(['/login']);
+        });
+    };
+    AuthService.prototype.register = function (email, password, nombres, apellidos, direccion, telefono) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.AFauth.createUserWithEmailAndPassword(email, password).then(function (res) {
+                var uid = res.user.uid;
+                //console.log(res.user.uid);
+                _this.db.collection('/Usuarios').doc(uid).set({
+                    nombres: nombres,
+                    apellidos: apellidos,
+                    direccion: direccion,
+                    telefono: telefono,
+                    uid: uid
+                });
+                resolve(res);
+            })["catch"](function (err) { return reject(err); });
         });
     };
     AuthService.prototype.loginWithGoogle = function () {

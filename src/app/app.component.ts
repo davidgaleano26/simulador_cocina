@@ -7,6 +7,9 @@ import { SocialAuthService } from "angularx-social-login";
 import { SocialUser } from "angularx-social-login";
 import { Router} from '@angular/router';
 
+/**/
+import { AuthService } from './servicios/auth.service';
+
 
 @Component({
   selector: 'app-root',
@@ -157,7 +160,9 @@ export class AppComponent implements OnInit {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private autService: SocialAuthService,
-    public router: Router
+    public router: Router,
+    /**/
+    public authserviice : AuthService
     ) {
       this.initializeApp();
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
@@ -190,22 +195,26 @@ export class AppComponent implements OnInit {
       this.user = user;
       this.loggedIn = (user != null);
     });
-}
-cambio(){
-
-this.darkMode = !this.darkMode,
-     document.body.classList.toggle('dark');
- }
- verdadero(){
-  const uno = document.body.classList.value;
-  if (uno === 'dark'){
-    return true;
   }
-  else{
+  cambio(){
+
+    this.darkMode = !this.darkMode,
+     document.body.classList.toggle('dark');
+  }
+  verdadero(){
+    const uno = document.body.classList.value;
+    if (uno === 'dark'){
+      return true;
+  }else{
     return false;
   }
- }
- signOut(): void {
+  }
+  signOut(): void {
     this.autService.signOut();
-}
+  }
+  /*M[etodo CerrarSesion*/
+  onlogOut(){
+    this.authserviice.logout();
+  }
+
 }
