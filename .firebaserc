@@ -6,6 +6,13 @@
           "baselogin-e6cb3"
         ]
       }
+    },
+    "simulador-cocina": {
+      "hosting": {
+        "www": [
+          "app"
+        ]
+      }
     }
   }
 }
