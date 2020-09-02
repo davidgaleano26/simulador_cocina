@@ -7,6 +7,7 @@ import { SocialUser } from 'angularx-social-login';
 import { MenuController } from '@ionic/angular';
 import { MsalService, BroadcastService } from '@azure/msal-angular';
 import { Extractor } from '@angular/compiler';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -29,6 +30,7 @@ export class LoginPage implements OnInit {
   onSubmitLogin(){
     this.authService.login(this.email, this.password).then( res => {
       this.router.navigate(['/inicio/']);
+      this.menuctrl.enable(true);
     }).catch(err => alert('Los Datos son Incorrectos o no Existe el Usuario'));
   }
   // loginGoogle(){
@@ -52,15 +54,17 @@ export class LoginPage implements OnInit {
     this.menuctrl.enable(false);
  }
  ionViewDidLeave() {
-  //  console.log(this.router.navigate(['/registro']));
-  //  if(this.router.navigate(['/registro'])){
-  //  this.menuctrl.enable(false);
-  //  console.log("Entramos")
-  //  }
-  //  else{
-  //    console.log("Estamos en otro lado")
-    this.menuctrl.enable(true);
-  // }
+   const registro = this.router.url;
+   if(registro != '/registro'){
+     this.menuctrl.enable(true);
+     console.log("Entramos")
+     return true
+    }
+    else{
+      this.menuctrl.enable(false);
+      console.log("Estamos en otro lado")
+      return false;
+  }
  }
  async login() {
      const isIE = await window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
