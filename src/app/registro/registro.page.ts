@@ -26,13 +26,11 @@ export class RegistroPage implements OnInit {
   ionViewWillEnter() {
     this.menuctrl.enable(false);
   }
-  ionViewDidLeave() {
-   this.menuctrl.enable(false);
-  }
   onSubmitRegister(){
     this.auth.register(this.email, this.password, this.nombres, this.apellidos, this.direccion, this.telefono).then(
       auth =>{
         this.router.navigate(['/inicio']);
+        this.menuctrl.enable(true);
         console.log(auth);
       }
     ).catch(err => console.log(err));
