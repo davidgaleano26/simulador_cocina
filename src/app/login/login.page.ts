@@ -7,7 +7,8 @@ import { SocialUser } from 'angularx-social-login';
 import { MenuController } from '@ionic/angular';
 import { MsalService, BroadcastService } from '@azure/msal-angular';
 import { Extractor } from '@angular/compiler';
-
+import { Plugins } from '@capacitor/core';
+const { SplashScreen } = Plugins;
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -25,6 +26,19 @@ export class LoginPage implements OnInit {
   constructor(public router: Router, private autService: SocialAuthService, public menuctrl: MenuController,  private broadcastService: BroadcastService, private auhService: MsalService, private authService: AuthService) { }
 
   ngOnInit() {
+    // Hide the splash (you should do this on app launch)
+SplashScreen.hide();
+
+// Show the splash for an indefinite amount of time:
+SplashScreen.show({
+  autoHide: false
+});
+
+// Show the splash for two seconds and then auto hide:
+SplashScreen.show({
+  showDuration: 2000,
+  autoHide: true
+});
   }
 
   onSubmitLogin(){
