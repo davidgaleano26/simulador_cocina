@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from "@ionic/angular";
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-videos',
@@ -14,5 +14,5 @@ export class VideosPage implements OnInit {
 
   async closeModal() {
     await this.modalController.dismiss();
-  }  
+  }
 }
