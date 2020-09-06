@@ -141,7 +141,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Docentes',
-      url: '/docentes',
+      url: '/tabs/docentes',
       icon: 'briefcase',
       open: false
     },
