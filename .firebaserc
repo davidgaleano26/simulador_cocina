@@ -11,8 +11,14 @@
       "hosting": {
         "www": [
           "app"
+        ],
+        "app": [
+          "simulador-cocina"
         ]
       }
     }
+  },
+  "projects": {
+    "simulador-cocina": "simulador-cocina"
   }
 }
