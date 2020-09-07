@@ -22,7 +22,7 @@ import { CalendarioPage } from '../calendario/calendario.page';
     IonicModule,
     InicioPageRoutingModule
   ],
-  declarations: [InicioPage, VideosPage, TipsPage, RecetasPage, TalleresPage, PreguntasPage, CalendarioPage],
+  declarations: [InicioPage],
   entryComponents: [VideosPage, TipsPage, RecetasPage, TalleresPage, PreguntasPage, CalendarioPage]
 })
 export class InicioPageModule {}
