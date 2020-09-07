@@ -42,7 +42,7 @@ SplashScreen.show({
   }
 
   onSubmitLogin(){
-    this.authService.login(this.email, this.password).then( res => {
+  this.authService.login(this.email, this.password).then( res => {
       this.router.navigate(['/inicio/']);
       this.menuctrl.enable(true);
     }).catch(err => alert('Los Datos son Incorrectos o no Existe el Usuario'));
@@ -71,12 +71,10 @@ SplashScreen.show({
    const registro = this.router.url;
    if(registro != '/registro'){
      this.menuctrl.enable(true);
-     console.log("Entramos")
      return true
     }
     else{
       this.menuctrl.enable(false);
-      console.log("Estamos en otro lado")
       return false;
   }
  }

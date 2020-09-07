@@ -89,6 +89,14 @@ const routes: Routes = [
   {
     path: 'tab3',
     loadChildren: () => import('./tab3/tab3.module').then( m => m.Tab3PageModule)
+  },
+  {
+    path: 'que-somos',
+    loadChildren: () => import('./que-somos/que-somos.module').then( m => m.QueSomosPageModule)
+  },
+  {
+    path: 'tabs-quienes-somos',
+    loadChildren: () => import('./tabs-quienes-somos/tabs-quienes-somos.module').then( m => m.TabsQuienesSomosPageModule)
   }
 
 
