@@ -16,8 +16,8 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     IonicModule,
     NgxChartsModule,
+    RouterModule.forChild([{ path: '', component: DocentesPage }]),
     DocentesPageRoutingModule,
-    RouterModule.forChild([{ path: '', component: DocentesPage }])
   ],
   declarations: [DocentesPage]
 })
