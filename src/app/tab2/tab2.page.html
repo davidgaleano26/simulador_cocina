@@ -8,6 +8,20 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-title size="large" class="ion-text-center">Reportes</ion-title>
+<ngx-charts-bar-vertical
+  [view]="view"
+  [scheme]="colorScheme"
+  [results]="single"
+  [gradient]="gradient"
+  [xAxis]="showXAxis"
+  [yAxis]="showYAxis"
+  [legend]="showLegend"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  (select)="onSelect($event)">
+</ngx-charts-bar-vertical>
   <!-- <app-explore-container name="Tab 2 page"></app-explore-container> -->
 </ion-content>

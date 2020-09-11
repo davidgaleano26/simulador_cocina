@@ -8,12 +8,16 @@ import { Tab2PageRoutingModule } from './tab2-routing.module';
 
 import { Tab2Page } from './tab2.page';
 import { RouterModule } from '@angular/router';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    // BrowserAnimationsModule,
+    NgxChartsModule,
     Tab2PageRoutingModule,
     RouterModule.forChild([{ path: '', component: Tab2Page }])
   ],
