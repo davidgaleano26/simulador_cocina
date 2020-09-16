@@ -8,6 +8,7 @@ import { MenuController } from '@ionic/angular';
 import { MsalService, BroadcastService } from '@azure/msal-angular';
 import { Extractor } from '@angular/compiler';
 import { Plugins } from '@capacitor/core';
+import { BarcodeScannerOptions, BarcodeScanner } from "@ionic-native/barcode-scanner/ngx";
 const { SplashScreen } = Plugins;
 @Component({
   selector: 'app-login',
@@ -17,13 +18,16 @@ const { SplashScreen } = Plugins;
 export class LoginPage implements OnInit {
   user: SocialUser;
   loggedIn: boolean;
+  datocodificado: any;
+  datoscaneado: {};
+
 
 
   email: string;
   password: string;
 
   // tslint:disable-next-line: max-line-length
-  constructor(public router: Router, private autService: SocialAuthService, public menuctrl: MenuController,  private broadcastService: BroadcastService, private auhService: MsalService, private authService: AuthService) { }
+  constructor(private barcodeScanner: BarcodeScanner, public router: Router, private autService: SocialAuthService, public menuctrl: MenuController,  private broadcastService: BroadcastService, private auhService: MsalService, private authService: AuthService) { }
 
   ngOnInit() {
     // Hide the splash (you should do this on app launch)
@@ -110,5 +114,25 @@ SplashScreen.show({
       // });
        this.router.navigate(['/inicio']);
     }
+}
+
+LeerCode() {
+  this.barcodeScanner.scan().then(barcodeData => {
+      this.datoscaneado = barcodeData;
+    })
+    .catch(err => {
+      console.log("Error", err);
+    });
+}
+
+CodificarTexto() {
+  this.barcodeScanner.encode(this.barcodeScanner.Encode.TEXT_TYPE, this.datocodificado).then(
+      encodedData => {
+        this.datocodificado = encodedData;
+      },
+      err => {
+        console.log("Un error ha ocurrido: " + err);
+      }
+    );
 }
 }

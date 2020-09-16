@@ -4,7 +4,8 @@
   <div class="fondo-login">
     <main class="contenedor">
       <a href="https://politecnicointernacional.edu.co">
-        <img class="logo-img" src="../../assets/img/login-icono.png" alt="" />
+        <img class="logo-img" src="../../assets/img/88fd975432d14487de2ce90d2cfacebc.png" alt="" />
+        <!-- <img class="logo-img" src="../../assets/img/login-icono.png" alt="" /> -->
       </a>
 
       <ion-item transparent>
@@ -52,6 +53,22 @@
           ><ion-icon slot="start" name="logo-windows"></ion-icon>inicia sesión
           con microsoft</ion-button
         >
+
+      <!--CODIFICAR-->
+      <ion-input type="text" placeholder="Digite su texto" [(ngModel)]="datocodificado"></ion-input>
+  
+      <ion-button expand="block" (click)="CodificarTexto()">Generar Código</ion-button>
+
+      <br>
+
+      <!--SCANNEAR-->
+      <ion-button expand="block" color="success" (click)="LeerCode()">Scannear Código</ion-button>
+    
+      <div *ngIf="datoscaneado">
+          <p>
+              Contenido obtenido: <b>{{ datoscaneado["text"] }}</b>
+          </p>
+      </div>
       </div>
     </main>
   </div>
