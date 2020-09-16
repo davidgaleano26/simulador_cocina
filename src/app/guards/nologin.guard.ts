@@ -22,7 +22,7 @@ export class NologinGuard implements CanActivate {
 
       return this.AFauth.authState.pipe(map( auth => {
 
-        if (isNullOrUndefined(auth)) {          
+        if (isNullOrUndefined(auth)) {
           return true;
         }else{
           this.router.navigate(['/inicio']);
@@ -32,5 +32,5 @@ export class NologinGuard implements CanActivate {
         //return false;
       }))
   }
-  
+
 }
