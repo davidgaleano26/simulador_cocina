@@ -49,26 +49,10 @@
         <ion-button class="boton" shape="round" [routerLink]="['/registro/']"
           >Únete a nosotros</ion-button
         >
-        <ion-button class="botone" color="transparent" shape="round" (click)="login()"
+        <ion-button class="botone" color="transparent" shape="round" (click)="abrirmicrosoft()"
           ><ion-icon slot="start" name="logo-windows"></ion-icon>inicia sesión
           con microsoft</ion-button
         >
-
-      <!--CODIFICAR-->
-      <ion-input type="text" placeholder="Digite su texto" [(ngModel)]="datocodificado"></ion-input>
-  
-      <ion-button expand="block" (click)="CodificarTexto()">Generar Código</ion-button>
-
-      <br>
-
-      <!--SCANNEAR-->
-      <ion-button expand="block" color="success" (click)="LeerCode()">Scannear Código</ion-button>
-    
-      <div *ngIf="datoscaneado">
-          <p>
-              Contenido obtenido: <b>{{ datoscaneado["text"] }}</b>
-          </p>
-      </div>
       </div>
     </main>
   </div>

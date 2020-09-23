@@ -98,7 +98,11 @@ const routes: Routes = [
   {
     path: 'tabs-quienes-somos',
     loadChildren: () => import('./tabs-quienes-somos/tabs-quienes-somos.module').then( m => m.TabsQuienesSomosPageModule)
+  },  {
+    path: 'info-popup',
+    loadChildren: () => import('./info-popup/info-popup.module').then( m => m.InfoPopupPageModule)
   }
+
 
 
 
