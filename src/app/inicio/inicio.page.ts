@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, PopoverController } from '@ionic/angular';
 import { VideosPage } from '../videos/videos.page';
 import { TipsPage } from '../tips/tips.page';
 import { RecetasPage } from '../recetas/recetas.page';
 import { TalleresPage } from '../talleres/talleres.page';
 import { PreguntasPage } from '../preguntas/preguntas.page';
 import { CalendarioPage } from '../calendario/calendario.page';
+import { InfoPopupPage} from '../info-popup/info-popup.page';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { CalendarioPage } from '../calendario/calendario.page';
 })
 export class InicioPage implements OnInit {
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController,public popoverController: PopoverController) { }
 
   async openModal(){
     const modal = await this.modalController.create({
@@ -57,6 +58,16 @@ export class InicioPage implements OnInit {
       component: CalendarioPage
     });
     return await modal.present();
+  }
+  async pop(evento:any) {
+    const popover = await this.popoverController.create({
+      component: InfoPopupPage,
+      cssClass: 'my-custom-class',
+      event: evento,
+      translucent: true,
+      // backdropDismiss: false
+    });
+     await popover.present();
   }
 
   ngOnInit() {

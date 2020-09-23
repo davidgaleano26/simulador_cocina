@@ -2,27 +2,43 @@ import { Injectable } from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {GooglePlus} from '@ionic-native/google-plus/ngx';
+import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 import { auth } from 'firebase';
 import { promise } from 'protractor';
 import { resolve } from 'dns';
 import { rejects } from 'assert';
 import { Router } from "@angular/router";
+
+import * as firebase from 'firebase/app';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  constructor(private AFauth: AngularFireAuth, private google: GooglePlus, private router: Router, private db: AngularFirestore) { }
+  userRef: AngularFireObject<any>;
+  userList: AngularFireList<any>;
+  constructor(private AFauth: AngularFireAuth, private google: GooglePlus, private router: Router, private db: AngularFirestore,private bd: AngularFireDatabase) { }
 
   login(email:string, password:string){
 
     return new Promise((resolve, rejected) =>{
 
       this.AFauth.signInWithEmailAndPassword(email, password).then(user => {
+        console.log(user);
         resolve(user);
       }).catch(err => rejected(err));
     });
     
+  }
+  getUser(id: string) {
+    this.userRef = this.bd.object('/user/' + id);
+    return this.userRef;
+  }
+
+  // Get List
+  getUserList() {
+    this.userList = this.bd.list('/user');
+    return this.userList;
   }
 
   logout(){
@@ -62,4 +78,25 @@ export class AuthService {
       return this.AFauth.signInWithCredential(auth.GoogleAuthProvider.credential(null, user_data_google.accesToken));
     });
   }
+
+
+  /**/
+  loginConGoogle(){
+    return this.AFauth.signInWithPopup(new firebase.auth.GoogleAuthProvider);
+  }
+
+
+  /*
+  loginConMicrosoft(){
+
+    var provider = new firebase.auth.OAuthProvider('microsoft.com');
+    provider.setCustomParameters({
+      tenant: 'TENANT_ID'
+    });
+    
+    return this.AFauth.signInWithPopup(provider);
+
+  }
+  */
+
 }

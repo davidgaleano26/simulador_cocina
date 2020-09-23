@@ -41,14 +41,20 @@
 .titulo{
     margin-left: 40%;
     color:white;
+    //clip-path: polygon(50% 0, 28% 15%, 17% 26%, 11% 36%, 0 62%, 0% 0%);
 }
 .body{
     border-radius: 50px 0px 0px 0px;
     -moz-border-radius: 50px 0px 0px 0px;
     -webkit-border-radius: 50px 0px 0px 0px;
     border: 0px solid #fff;
-
-
+    
 }
+
+img{
+    width: 250px; 
+    height: 150px;
+}
+
 
 

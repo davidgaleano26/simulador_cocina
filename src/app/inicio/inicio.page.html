@@ -3,105 +3,93 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title slot="end">Inicio</ion-title>
+    <ion-title class="ion-text-center">Inicio</ion-title>
+    <ion-buttons slot="end">
+    <ion-button (click)="pop( $event )">
+      <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-horizontal"></ion-icon>
+    </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="lis"   >
-    <img class="iconito" src="https://politecnicointernacional.edu.co/sw/sites/default/files/glazed-cms-media/tegnologias_0.jpg">
+  <div class="lis">
+    <img class="iconito"
+      src="https://politecnicointernacional.edu.co/sw/sites/default/files/glazed-cms-media/tegnologias_0.jpg">
     <ion-title class="titulo">Cocina</ion-title>
   </div>
   <div class="body">
-  <ion-grid>
-    <div class="cards">
-    <ion-row>
-      <ion-col>
-        <div>
-          <ion-card (click)="openModal()" class="bordes-Card">
-            <ion-card-header>
-              <ion-icon class="mi-icono" name="film"></ion-icon>
-            </ion-card-header>
-          
-            <ion-card-content class="text-card">
-              Videos
-            </ion-card-content>
-          </ion-card>
-        </div>
-      </ion-col>
-      <ion-col>
-        <div>
-          <ion-card (click)="openModalTips() " class="bordes-Card">
-            <ion-card-header>
-              <ion-icon class="mi-icono" name="restaurant"></ion-icon>
-            </ion-card-header>
-          
-            <ion-card-content class="text-card">
-              Tips  
-            </ion-card-content>
-          </ion-card>
-        </div>
-      </ion-col>
-    </ion-row>
-    
-    <ion-row>
-      <ion-col>
-        <div>
-          <ion-card (click)="openModalTalleres()" class="bordes-Card">
-            <ion-card-header>
-              <ion-icon class="mi-icono" name="documents"></ion-icon>
-            </ion-card-header>
-          
-            <ion-card-content class="text-card">
-              Talleres
-            </ion-card-content>
-          </ion-card>
-        </div>
-      </ion-col>
-      <ion-col>
-        <div>
-          <ion-card (click)="openModalRecetas()" class="bordes-Card">
-            <ion-card-header>
-              <ion-icon class="mi-icono" name="pizza"></ion-icon>
-            </ion-card-header>
-          
-            <ion-card-content class="text-card">
-              Recetas
-            </ion-card-content>
-          </ion-card>
-        </div>
-      </ion-col>
-    </ion-row>
+    <ion-grid>
+      <div class="cards">
+        <ion-row>
+          <ion-col>
+            <div>
+              <ion-card (click)="openModal()" class="bordes-Card">
+                <img src="assets/img/videosCocina.jpg" />
+                <ion-card-content class="text-card">
+                  Videos
+                </ion-card-content>
+              </ion-card>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div>
+              <ion-card (click)="openModalTips() " class="bordes-Card">
+                <img src="assets/img/tipsCocina.jpg" />
+                <ion-card-content class="text-card">
+                  Tips de Cocina
+                </ion-card-content>
+              </ion-card>
+            </div>
+          </ion-col>
+        </ion-row>
 
-    <ion-row>
-      <ion-col>
-        <div>
-          <ion-card (click)="openModalPreguntas()" class="bordes-Card">    
-          <ion-card-header>
-            <ion-icon class="mi-icono" name="help"></ion-icon>
-          </ion-card-header>
-        
-          <ion-card-content class="text-card">
-            Preguntas
-          </ion-card-content>
-        </ion-card>
-        </div>
-      </ion-col>
-      <ion-col>
-        <div>
-          <ion-card (click)="openModalCalendario()" class="bordes-Card">    
-            <ion-card-header>
-              <ion-icon class="mi-icono" name="calendar"></ion-icon>
-            </ion-card-header>
-          
-            <ion-card-content class="text-card">
-              Calendario
-            </ion-card-content>
-          </ion-card>
-        </div>
-      </ion-col>
-    </ion-row>
+        <ion-row>
+          <ion-col>
+            <div>
+              <ion-card (click)="openModalTalleres()" class="bordes-Card">
+                <img src="assets/img/tallerCocina.jpeg"/>
+                <ion-card-content class="text-card">
+                  Talleres Cocina
+                </ion-card-content>
+              </ion-card>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div>
+              <ion-card (click)="openModalRecetas()" class="bordes-Card">
+                <img src="assets/img/recetas.jpg"/>
+                <ion-card-content class="text-card">
+                  Recetas
+                </ion-card-content>
+              </ion-card>
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <div>
+              <ion-card (click)="openModalPreguntas()" class="bordes-Card">
+                <img src="assets/img/preguntasChef.jpeg"/>
+                <ion-card-content class="text-card">
+                  Preguntas
+                </ion-card-content>
+              </ion-card>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div>
+              <ion-card (click)="openModalCalendario()" class="bordes-Card">
+                <img src="assets/img/calendarioCocina.jpg"/>
+                <ion-card-content class="text-card">
+                  Calendario
+                </ion-card-content>
+              </ion-card>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-grid>
   </div>
-  </ion-grid>
-</div>
 </ion-content>

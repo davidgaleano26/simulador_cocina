@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Quienes somos',
-      url: '/quienes-somos',
+      url: '/tabs-quienes-somos/que-somos',
       icon: 'bulb',
       open: false
     },
@@ -141,7 +141,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Docentes',
-      url: '/docentes',
+      url: '/tabs/docentes',
       icon: 'briefcase',
       open: false
     },
@@ -203,7 +203,11 @@ export class AppComponent implements OnInit {
       this.user = user;
       this.loggedIn = (user != null);
     });
+    // this.authserviice.login.
   }
+  // getAccount(){
+  //   this.http.get.(this.).toPromise()
+  // }
   cambio(){
     
     this.darkMode = !this.darkMode,

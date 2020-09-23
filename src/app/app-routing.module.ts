@@ -78,7 +78,32 @@ const routes: Routes = [
   {
     path: 'talleres',
     loadChildren: () => import('./talleres/talleres.module').then( m => m.TalleresPageModule)
+  },
+  {
+    path: 'tab2',
+    loadChildren: () => import('./tab2/tab2.module').then( m => m.Tab2PageModule)
+  },
+  {
+    path: 'tabs',
+    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
+  },
+  {
+    path: 'tab3',
+    loadChildren: () => import('./tab3/tab3.module').then( m => m.Tab3PageModule)
+  },
+  {
+    path: 'que-somos',
+    loadChildren: () => import('./que-somos/que-somos.module').then( m => m.QueSomosPageModule)
+  },
+  {
+    path: 'tabs-quienes-somos',
+    loadChildren: () => import('./tabs-quienes-somos/tabs-quienes-somos.module').then( m => m.TabsQuienesSomosPageModule)
+  },  {
+    path: 'info-popup',
+    loadChildren: () => import('./info-popup/info-popup.module').then( m => m.InfoPopupPageModule)
   }
+
+
 
 
 

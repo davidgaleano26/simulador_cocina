@@ -8,6 +8,7 @@ import { DocentesPageRoutingModule } from './docentes-routing.module';
 
 import { DocentesPage } from './docentes.page';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     FormsModule,
     IonicModule,
     NgxChartsModule,
-    DocentesPageRoutingModule
+    RouterModule.forChild([{ path: '', component: DocentesPage }]),
+    DocentesPageRoutingModule,
   ],
   declarations: [DocentesPage]
 })
