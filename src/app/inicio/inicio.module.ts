@@ -13,6 +13,7 @@ import { RecetasPage } from '../recetas/recetas.page';
 import { TalleresPage } from '../talleres/talleres.page';
 import { PreguntasPage } from '../preguntas/preguntas.page';
 import { CalendarioPage } from '../calendario/calendario.page';
+import { InfoPopupPage } from '../info-popup/info-popup.page';
 
 
 @NgModule({
@@ -23,6 +24,6 @@ import { CalendarioPage } from '../calendario/calendario.page';
     InicioPageRoutingModule
   ],
   declarations: [InicioPage],
-  entryComponents: [VideosPage, TipsPage, RecetasPage, TalleresPage, PreguntasPage, CalendarioPage]
+  entryComponents: [VideosPage, TipsPage, RecetasPage, TalleresPage, PreguntasPage, CalendarioPage,InfoPopupPage]
 })
 export class InicioPageModule {}
