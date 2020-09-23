@@ -16,7 +16,6 @@ import {AngularFireAuth} from '@angular/fire/auth';
 import { BarcodeScannerOptions, BarcodeScanner } from "@ionic-native/barcode-scanner/ngx";
 const { SplashScreen } = Plugins;
 let provider = new firebase.auth.OAuthProvider('microsoft.com');
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -33,7 +32,7 @@ export class LoginPage implements OnInit {
 
   email: string;
   password: string;
-  
+
   // tslint:disable-next-line: max-line-length
   constructor(private barcodeScanner: BarcodeScanner, 
     public router: Router, 
