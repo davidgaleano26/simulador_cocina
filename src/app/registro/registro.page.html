@@ -3,25 +3,58 @@
     <main class="contenedor">
       <h2 small-heading>Registro</h2>
       <ion-item transparent>
-        <ion-input placeholder="Nombres" type="text" [(ngModel)]="nombres" required></ion-input>
+        <ion-input
+          placeholder="Nombres"
+          type="text"
+          [(ngModel)]="nombres"
+          id="valNombres"
+        >
+        </ion-input>
       </ion-item>
       <ion-item transparent>
-        <ion-input placeholder="Apellidos" type="text" [(ngModel)]="apellidos" required></ion-input>
+        <ion-input
+          placeholder="Apellidos"
+          type="text"
+          [(ngModel)]="apellidos"
+          id="valApellidos"
+        ></ion-input>
       </ion-item>
       <ion-item transparent>
-        <ion-input placeholder="Direccion" type="text" [(ngModel)]="direccion" required></ion-input>
+        <ion-input
+          placeholder="Direccion"
+          type="text"
+          [(ngModel)]="direccion"
+          id="valDireccion"
+        ></ion-input>
       </ion-item>
       <ion-item transparent>
-        <ion-input placeholder="Telefono" type="number" [(ngModel)]="telefono" required></ion-input>
+        <ion-input
+          placeholder="Telefono"
+          type="number"
+          [(ngModel)]="telefono"
+          id="valTelefono"
+        ></ion-input>
       </ion-item>
       <ion-item transparent>
-        <ion-input placeholder="Usuario" type="text" [(ngModel)]="email" required></ion-input>
+        <ion-input
+          placeholder="Email"
+          type="email"
+          [(ngModel)]="email"
+          id="valEmail"
+        ></ion-input>
       </ion-item>
       <ion-item transparent>
-        <ion-input placeholder="Contraseña" type="password" [(ngModel)]="password" required></ion-input>
+        <ion-input
+          placeholder="Contraseña"
+          type="password"
+          [(ngModel)]="password"
+          id="valPassword"
+        ></ion-input>
       </ion-item>
 
-      <ion-button class="boton" shape="round" (click)="onSubmitRegister()">Guardar</ion-button>
+      <ion-button class="boton" shape="round" (click)="onSubmitRegister()"
+        >Guardar</ion-button
+      >
       <ion-button
         color="medium"
         class="boton"

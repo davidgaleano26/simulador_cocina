@@ -8,6 +8,9 @@ import { promise } from 'protractor';
 import { resolve } from 'dns';
 import { rejects } from 'assert';
 import { Router } from "@angular/router";
+
+import * as firebase from 'firebase/app';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -75,4 +78,25 @@ export class AuthService {
       return this.AFauth.signInWithCredential(auth.GoogleAuthProvider.credential(null, user_data_google.accesToken));
     });
   }
+
+
+  /**/
+  loginConGoogle(){
+    return this.AFauth.signInWithPopup(new firebase.auth.GoogleAuthProvider);
+  }
+
+
+  /*
+  loginConMicrosoft(){
+
+    var provider = new firebase.auth.OAuthProvider('microsoft.com');
+    provider.setCustomParameters({
+      tenant: 'TENANT_ID'
+    });
+    
+    return this.AFauth.signInWithPopup(provider);
+
+  }
+  */
+
 }

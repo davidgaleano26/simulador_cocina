@@ -8,6 +8,11 @@ import { MenuController } from '@ionic/angular';
 import { MsalService, BroadcastService } from '@azure/msal-angular';
 import { Extractor } from '@angular/compiler';
 import { Plugins } from '@capacitor/core';
+
+/**/
+import * as firebase from 'firebase/app';
+import {AngularFireAuth} from '@angular/fire/auth';
+
 const { SplashScreen } = Plugins;
 @Component({
   selector: 'app-login',
@@ -23,7 +28,7 @@ export class LoginPage implements OnInit {
   password: string;
 
   // tslint:disable-next-line: max-line-length
-  constructor(public router: Router, private autService: SocialAuthService, public menuctrl: MenuController,  private broadcastService: BroadcastService, private auhService: MsalService, private authService: AuthService) { }
+  constructor(public router: Router, private autService: AuthService, public menuctrl: MenuController,  private broadcastService: BroadcastService, private auhService: MsalService, private authService: AuthService, private AFauth: AngularFireAuth) { }
 
   ngOnInit() {
     // Hide the splash (you should do this on app launch)
@@ -54,6 +59,8 @@ SplashScreen.show({
   //     alert ('Algo salió mal contacte con el administrador' + JSON.stringify(err));
   //   });
   // }
+
+  /*
   signInWithGoogle(): void{
     const entramos = this.autService.signIn(GoogleLoginProvider.PROVIDER_ID);
     console.log(entramos);
@@ -64,9 +71,37 @@ SplashScreen.show({
     this.router.navigate(['/inicio']);
     }
   }
+  */
+
+  signInWithGoogle(){
+    this.autService.loginConGoogle().then(respuesta => 
+      {this.router.navigateByUrl('/inicio');}, error => {
+              console.log(error);});  
+  }
+
+  /*
+  signInWithMicrosoft(){
+    this.autService.loginConMicrosoft().then(respuesta => 
+      {this.router.navigateByUrl('/inicio');}, error => {
+              console.log(error);});  
+  }
+  */
+
+  /*
+  loginConMicrosoft(){
+    var provider = new firebase.auth.OAuthProvider('microsoft.com');
+    this.AFauth.signInWithPopup(provider).then(
+      respuesta => 
+      {this.router.navigateByUrl('/inicio');}, error => {
+              console.log(error);}
+    )
+  }
+  */
+
   ionViewWillEnter() {
     this.menuctrl.enable(false);
  }
+
  ionViewDidLeave() {
    const registro = this.router.url;
    if(registro != '/registro'){
@@ -78,6 +113,7 @@ SplashScreen.show({
       return false;
   }
  }
+ 
  async login() {
      const isIE = await window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
     const requestObj = {

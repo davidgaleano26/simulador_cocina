@@ -4,6 +4,7 @@ import { MenuController } from '@ionic/angular';
 /**/
 import { AuthService } from "../servicios/auth.service";
 import { Router } from "@angular/router";
+import { FormBuilder,Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
@@ -12,6 +13,13 @@ import { Router } from "@angular/router";
 })
 export class RegistroPage implements OnInit {
 
+  /*
+  usuario = this.fb.group({
+    valNombres: ['', [Validators.required, Validators.minLength(4)]],
+    email: ['', Validators.email],
+  });
+  */
+
   public nombres: string;
   public apellidos: string;
   public direccion: string;
@@ -19,7 +27,7 @@ export class RegistroPage implements OnInit {
   public email: string;
   public password : string;
 
-  constructor(private auth: AuthService, private router: Router, public menuctrl: MenuController) { }
+  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router, public menuctrl: MenuController) { }
 
   ngOnInit() {
   }
