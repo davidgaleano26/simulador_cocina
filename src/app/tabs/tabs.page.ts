@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
 
 @Component({
   selector: 'app-tabs',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabsPage implements OnInit {
 
-  constructor() { }
+
+
+  constructor(
+
+
+
+
+  ) { }
 
   ngOnInit() {
   }
+
+
 
 }
