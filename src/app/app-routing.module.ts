@@ -78,7 +78,8 @@ const routes: Routes = [
   {
     path: 'talleres',
     loadChildren: () => import('./talleres/talleres.module').then( m => m.TalleresPageModule)
-  },  {
+  },
+  {
     path: 'tab2',
     loadChildren: () => import('./tab2/tab2.module').then( m => m.Tab2PageModule)
   },

@@ -19,7 +19,7 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      
+
       return this.AFauth.authState.pipe(map( auth => {
 
         if (isNullOrUndefined(auth)) {
@@ -31,7 +31,7 @@ export class AuthGuard implements CanActivate {
         //console.log(auth);
         //return false;
       }))
-    
+
   }
-  
+
 }

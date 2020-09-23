@@ -26,6 +26,7 @@
     "@azure/msal-angular": "^1.0.0",
     "@capacitor/android": "^2.4.0",
     "@capacitor/core": "2.4.0",
+    "@ionic-native/barcode-scanner": "^5.28.0",
     "@ionic-native/core": "^5.0.7",
     "@ionic-native/google-plus": "^5.28.0",
     "@ionic-native/splash-screen": "^5.0.0",
@@ -33,12 +34,15 @@
     "@ionic/angular": "^5.0.0",
     "@ionic/lab": "^3.2.0",
     "@swimlane/ngx-charts": "^16.0.0",
+    "add": "^2.0.6",
     "angularx-social-login": "^3.2.1",
     "cordova-android": "8.1.0",
     "cordova-plugin-googleplus": "8.5.0",
     "firebase": "^7.19.0",
     "ionic": "^5.4.16",
     "msal": "^1.3.4",
+    "phonegap": "^9.0.0",
+    "plugin": "^0.3.3",
     "rxjs": "~6.5.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
@@ -75,6 +79,7 @@
     "karma-jasmine": "~3.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
     "open": "^7.0.3",
+    "phonegap-plugin-barcodescanner": "git+https://github.com/phonegap/phonegap-plugin-barcodescanner.git",
     "protractor": "~5.4.3",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
@@ -94,7 +99,8 @@
       "cordova-plugin-googleplus": {
         "REVERSED_CLIENT_ID": "com.googleusercontent.apps.644009582655-09mfouuu70ugedtbi29fro0ftn07leoe",
         "WEB_APPLICATION_CLIENT_ID": "644009582655-q01jt79a03g21qkorhdpkq01jh0lqtr9.apps.googleusercontent.com"
-      }
+      },
+      "phonegap-plugin-barcodescanner": {}
     },
     "platforms": [
       "android"

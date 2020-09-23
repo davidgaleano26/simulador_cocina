@@ -13,6 +13,7 @@ import { Plugins } from '@capacitor/core';
 import * as firebase from 'firebase/app';
 import {AngularFireAuth} from '@angular/fire/auth';
 
+import { BarcodeScannerOptions, BarcodeScanner } from "@ionic-native/barcode-scanner/ngx";
 const { SplashScreen } = Plugins;
 @Component({
   selector: 'app-login',
@@ -20,30 +21,41 @@ const { SplashScreen } = Plugins;
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+
   user: SocialUser;
   loggedIn: boolean;
+  datocodificado: any;
+  datoscaneado: {};
+
 
 
   email: string;
   password: string;
 
   // tslint:disable-next-line: max-line-length
-  constructor(public router: Router, private autService: AuthService, public menuctrl: MenuController,  private broadcastService: BroadcastService, private auhService: MsalService, private authService: AuthService, private AFauth: AngularFireAuth) { }
+  constructor(private barcodeScanner: BarcodeScanner, 
+    public router: Router, 
+    private autService: AuthService, 
+    public menuctrl: MenuController,  
+    private broadcastService: BroadcastService, 
+    private auhService: MsalService, 
+    private authService: AuthService, 
+    private AFauth: AngularFireAuth) { }
 
   ngOnInit() {
     // Hide the splash (you should do this on app launch)
-SplashScreen.hide();
+    SplashScreen.hide();
 
-// Show the splash for an indefinite amount of time:
-SplashScreen.show({
-  autoHide: false
-});
+  // Show the splash for an indefinite amount of time:
+    SplashScreen.show({
+    autoHide: false
+    });
 
-// Show the splash for two seconds and then auto hide:
-SplashScreen.show({
-  showDuration: 2000,
-  autoHide: true
-});
+  // Show the splash for two seconds and then auto hide:
+    SplashScreen.show({
+    showDuration: 2000,
+    autoHide: true
+    });
   }
 
   onSubmitLogin(){
@@ -100,22 +112,22 @@ SplashScreen.show({
 
   ionViewWillEnter() {
     this.menuctrl.enable(false);
- }
+  }
 
- ionViewDidLeave() {
+  ionViewDidLeave() {
    const registro = this.router.url;
-   if(registro != '/registro'){
-     this.menuctrl.enable(true);
-     return true
+    if(registro != '/registro'){
+      this.menuctrl.enable(true);
+      return true
     }
     else{
       this.menuctrl.enable(false);
       return false;
+    }
   }
- }
  
- async login() {
-     const isIE = await window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
+  async login() {
+    const isIE = await window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
     const requestObj = {
       scopes: ['user.read']
     };
@@ -146,5 +158,25 @@ SplashScreen.show({
       // });
        this.router.navigate(['/inicio']);
     }
+  }
+
+LeerCode() {
+  this.barcodeScanner.scan().then(barcodeData => {
+      this.datoscaneado = barcodeData;
+    })
+    .catch(err => {
+      console.log("Error", err);
+    });
+}
+
+CodificarTexto() {
+  this.barcodeScanner.encode(this.barcodeScanner.Encode.TEXT_TYPE, this.datocodificado).then(
+      encodedData => {
+        this.datocodificado = encodedData;
+      },
+      err => {
+        console.log("Un error ha ocurrido: " + err);
+      }
+    );
 }
 }
