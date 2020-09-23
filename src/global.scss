@@ -29,3 +29,6 @@
     color: linear-gradient(to right, #092259,#2d5dc4) !important; 
     background-color: rgba(0,0,0,0.500) !important;
 }
+.my-custom-class{
+    --backdrop-opacity:0.2;
+}
