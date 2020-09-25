@@ -14,7 +14,7 @@ import * as firebase from 'firebase/app';
 import {AngularFireAuth} from '@angular/fire/auth';
 
 import { BarcodeScannerOptions, BarcodeScanner } from "@ionic-native/barcode-scanner/ngx";
-const { SplashScreen } = Plugins;
+const { SplashScreen } = Plugins; 
 let provider = new firebase.auth.OAuthProvider('microsoft.com');
 @Component({
   selector: 'app-login',
@@ -171,11 +171,12 @@ abrirmicrosoft(){
     },
   })
   firebase.auth().signInWithPopup(provider)
-  .then(function(result){
-    console.log(result)
+  .then(function (respuesta){ 
+    console.log(respuesta)
+    this.router.navigateByUrl('/inicio');
   })
-  .catch(function(error){
-
-  })
-}
+  .catch(function(error) {
+            console.log(error);
+          });  
+        }
 }
