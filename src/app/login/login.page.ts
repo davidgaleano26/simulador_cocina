@@ -16,6 +16,18 @@ import {AngularFireAuth} from '@angular/fire/auth';
 import { BarcodeScannerOptions, BarcodeScanner } from "@ionic-native/barcode-scanner/ngx";
 const { SplashScreen } = Plugins; 
 let provider = new firebase.auth.OAuthProvider('microsoft.com');
+provider.setCustomParameters({
+  auth: {
+    clientId: '77d8101b-ef65-4713-a5f9-a5c73784e382', // This is your client ID
+    authority: 'https://login.microsoftonline.com/organizations',
+    redirectUri: 'https://baselogin-e6cb3.firebaseapp.com/__/auth/handler',// This is your redirect URI
+    postLogoutRedirectUri: "https://baselogin-e6cb3.firebaseapp.com/__/auth/handler",
+    client_secret: "Uz07POS_P.sbm_KgU2..6mAV.Qa5zdD.Mx",
+    scope: "https://graph.microsoft.com/.default",
+    prompt: "consent",
+    tenant: "b7a14df2-6d9e-4da3-91eb-c8c9c5b5129c"
+  },
+});
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -162,14 +174,6 @@ export class LoginPage implements OnInit {
   // }
 
 abrirmicrosoft(){
-  provider.setCustomParameters({
-    auth: {
-      clientId: '77d8101b-ef65-4713-a5f9-a5c73784e382', // This is your client ID
-      authority: 'https://login.microsoftonline.com/organizations',
-      redirectUri: 'https://baselogin-e6cb3.firebaseapp.com/__/auth/handler',// This is your redirect URI
-      postLogoutRedirectUri: "https://baselogin-e6cb3.firebaseapp.com/__/auth/handler"
-    },
-  })
   firebase.auth().signInWithPopup(provider)
   .then(function (respuesta){ 
     console.log(respuesta)
