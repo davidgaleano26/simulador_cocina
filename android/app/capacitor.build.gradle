@@ -13,8 +13,13 @@ dependencies {
     implementation "com.google.android.gms:play-services-auth:15.0.1"
     implementation "com.google.android.gms:play-services-identity:15.0.1"
     implementation "com.android.support:support-v4:27.+"
+    implementation "com.android.support:appcompat-v7:27.+"
 }
 apply from: "../../node_modules/phonegap-plugin-barcodescanner/src/android/barcodescanner.gradle"
+apply from: "../../node_modules/com-sarriaroman-photoviewer/src/android/photoviewer.gradle"
+apply from: "../../node_modules/cordova-android-support-gradle-release/cordova-android-support-gradle-release.gradle"
+apply from: "../../node_modules/cordova-plugin-telerik-imagepicker/src/android/ignorelinterrors.gradle"
+apply from: "../../node_modules/cordova-plugin-telerik-imagepicker/src/android/androidtarget.gradle"
 
 if (hasProperty('postBuildExtras')) {
   postBuildExtras()

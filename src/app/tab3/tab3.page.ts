@@ -186,27 +186,42 @@ export class Tab3Page implements OnInit {
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //FIREBASE
-  uploadFile(f: FileEntry){
+   async uploadFile(f: FileEntry){
 
     const path = f.nativeURL.substr(0, f.nativeURL.lastIndexOf('/') + 1);
-    const buffer = this.file.readAsArrayBuffer(path, f.name);
+    const buffer = await this.file.readAsArrayBuffer(path, f.name);
+    const type = this.getMimeType(f.name.split('.').pop());
+    const fileBlob = new Blob ([ buffer ] , type);
+
+    const randomID = Math.random()
+    .toString(36)
+    .substring(2, 8);
+
+    const uploadTask = this.storage.upload(`files/${new Date().getTime()}_${randomID}`, fileBlob);
+
+    uploadTask.percentageChanges().subscribe(changes => {
+
+      this.uploadProgress = changes;
+    });
+
+    uploadTask.then(async res => {
+      const toast = await this.toastCtrl.create({
+        duration: 3000,
+        message: 'File upload finished!'
+      });
+      toast.present();
+    })
 
   }
+
+  getMimeType(fileExt){
+    if(fileExt == 'wav') return { type : 'audio/wav'};
+    else if (fileExt == 'jpg') return { type: 'image/jpg'};
+    else if (fileExt == 'mp4') return { type: 'video/mp4'};
+    else if (fileExt == 'MOV') return { type: 'video/quicktime'};
+  }
+
 }
 
 
