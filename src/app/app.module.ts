@@ -36,6 +36,13 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { VideosPageModule } from './videos/videos.module';
+import { TipsPageModule } from './tips/tips.module';
+import { RecetasPageModule } from './recetas/recetas.module';
+import { TalleresPageModule } from './talleres/talleres.module';
+import { PreguntasPageModule } from './preguntas/preguntas.module';
+import { CalendarioPageModule } from './calendario/calendario.module';
+import { InfoPopupPageModule } from './info-popup/info-popup.module';
 
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
@@ -52,6 +59,13 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
     BrowserAnimationsModule,
     FormsModule, 
     ReactiveFormsModule,
+    VideosPageModule,
+    TipsPageModule,
+    RecetasPageModule,
+    TalleresPageModule,
+    PreguntasPageModule,
+    CalendarioPageModule,
+    InfoPopupPageModule,
     AngularFireModule.initializeApp(firebaseConfig),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     MsalModule.forRoot({
